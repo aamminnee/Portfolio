@@ -1,0 +1,135 @@
+/* =========================================
+   1. Variables & Reset (Palette: White/Woody/Modern)
+   ========================================= */
+:root {
+    /* // PALETTE "BOISÉ MODERNE" */
+    /* // Orange cuivré / Terre (Action principale) */
+    --color-primary: #ea580c;       
+    /* // Jaune Moutarde / Doré (Secondaire) */
+    --color-secondary: #eab308;     
+    /* // Gris très foncé (Texte principal - plus doux que le noir) */
+    --color-dark: #1c1917;          
+    /* // Gris moyen (Textes secondaires) */
+    --color-text-muted: #57534e;    
+    
+    /* // BACKGROUNDS */
+    --color-bg: #fafaf9;            /* // Blanc cassé très chaud (pierre chaude) */
+    --color-surface: #ffffff;       /* // Blanc pur pour les cartes */
+    --color-border: #e7e5e4;        /* // Gris chaud pour les bordures */
+
+    --font-main: 'Inter', sans-serif;
+    --container-width: 1280px;
+    --border-radius-lg: 16px;       /* // Arrondis plus subtils pour le côté "Sobre" */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-dark);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* =========================================
+   2. Global Utility Classes
+   ========================================= */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* // Dégradé subtil Orange -> Jaune pour les titres */
+.text-gradient {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+/* =========================================
+   3. BACKGROUND SHAPES (Version "Aquarelle")
+   ========================================= */
+.shapes-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+    background-color: var(--color-bg);
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px); /* // Très flou pour un effet diffus */
+    opacity: 0.15;      /* // Transparence forte pour la sobriété */
+}
+
+/* // Formes douces qui bougent lentement */
+.shape-1 {
+    top: -10%; left: -10%;
+    width: 600px; height: 600px;
+    background: var(--color-primary);
+    animation: float 20s infinite alternate ease-in-out;
+}
+
+.shape-2 {
+    bottom: -10%; right: -10%;
+    width: 700px; height: 700px;
+    background: var(--color-secondary);
+    animation: float 25s infinite alternate-reverse ease-in-out;
+}
+
+/* // On rajoute une 3ème forme pour l'équilibre */
+.shape.shape-blob {
+    top: 40%; left: 40%;
+    width: 400px; height: 400px;
+    background: #d6d3d1; /* // Gris chaud */
+    animation: float 30s infinite alternate ease-in-out;
+    opacity: 0.1;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 80px) scale(1.1); }
+}
+
+/* =========================================
+   4. Footer Styles
+   ========================================= */
+.site-footer {
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    padding: 3rem 0;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.copyright { color: var(--color-text-muted); font-size: 0.9rem; }
+
+.social-links { display: flex; gap: 1.5rem; }
+.social-links a {
+    color: var(--color-text-muted);
+    font-size: 1.25rem;
+    transition: all 0.2s ease;
+}
+.social-links a:hover { color: var(--color-primary); }

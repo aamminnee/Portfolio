@@ -1,0 +1,57 @@
+<section class="contact-section">
+    <div class="shapes-container">
+        <div class="shape shape-2"></div>
+        <div class="shape shape-1"></div>
+    </div>
+    
+    <div class="container">
+        <div class="contact-card" data-aos="flip-up">
+            <div class="card-header-line"></div>
+
+            <div class="contact-header">
+                <h2 class="contact-title">Travaillons Ensemble</h2>
+                <p class="contact-subtitle">J'étudie toutes les propositions de stage pour Avril 2025.</p>
+            </div>
+
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Offre simulée envoyée !');">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Entreprise</label>
+                        <input type="text" placeholder="Nom de l'entreprise" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" placeholder="rh@entreprise.com" class="form-input">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Type de contrat</label>
+                        <div class="select-wrapper">
+                            <select class="form-input form-select">
+                                <option>Stage (8-12 semaines)</option>
+                                <option>Alternance future</option>
+                                <option>CDD / CDI</option>
+                                <option>Autre</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Gratification (Opt.)</label>
+                        <input type="text" placeholder="Ex: Légale + Tickets Resto" class="form-input">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Message</label>
+                    <textarea rows="4" placeholder="Description de la mission..." class="form-input form-textarea"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    Envoyer l'offre <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
