@@ -1,0 +1,155 @@
+/* // Single Project Page Styles */
+
+.project-page {
+    padding-top: 120px;
+    padding-bottom: 5rem;
+    min-height: 100vh;
+}
+
+/* // Grid Layout */
+.project-grid-layout {
+    display: grid; grid-template-columns: 1fr; gap: 2rem;
+}
+@media (min-width: 1024px) {
+    .project-grid-layout { grid-template-columns: 2.5fr 1fr; }
+}
+
+/* // Main Content */
+.layout-main { display: flex; flex-direction: column; gap: 2rem; }
+
+.block-header {
+    background: white; border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg); padding: 2rem;
+    display: flex; flex-direction: column; justify-content: space-between;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+}
+@media (min-width: 768px) { .block-header { flex-direction: row; align-items: center; } }
+
+.header-title {
+    font-size: 2.5rem; font-weight: 800;
+    color: var(--color-dark); margin: 0; line-height: 1;
+}
+
+.header-meta { display: flex; gap: 1.5rem; margin-top: 1rem; }
+@media (min-width: 768px) { .header-meta { margin-top: 0; text-align: right; } }
+
+.meta-pill {
+    background: #f5f5f4; padding: 0.5rem 1rem;
+    border-radius: 50px; font-size: 0.9rem; font-weight: 600;
+    color: var(--color-text-muted);
+}
+
+/* // Description Block */
+.block-description {
+    background: white; border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg); padding: 2.5rem;
+    min-height: 300px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+}
+
+.block-description h2 {
+    font-size: 1.5rem; color: var(--color-dark);
+    margin-bottom: 1rem;
+    /* // Underline using secondary color (yellow) */
+    border-bottom: 2px solid var(--color-secondary);
+    display: inline-block;
+}
+
+.block-description p {
+    color: var(--color-text-muted); line-height: 1.8;
+    margin-bottom: 1.5rem; text-align: justify;
+}
+
+/* // Bottom Row (Tools + Images) */
+.bottom-row { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media (min-width: 768px) { .bottom-row { grid-template-columns: 1fr 2fr; } }
+
+.block-tools {
+    background: white; border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg); padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+}
+
+.tools-list { list-style: none; margin-top: 1rem; }
+.tools-list li {
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 0.5rem 0; border-bottom: 1px solid #f5f5f4;
+    color: var(--color-dark); font-weight: 600;
+}
+.tools-list i { color: var(--color-primary); width: 20px; }
+
+/* // Images Preview */
+.block-images {
+    background: white; border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg); padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 200px;
+}
+
+.gallery-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; width: 100%;
+}
+.gallery-thumb {
+    background: #f5f5f4; border-radius: 8px; height: 150px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--color-text-muted); font-size: 0.8rem; font-weight: 600;
+    transition: transform 0.2s; cursor: pointer;
+}
+.gallery-thumb:hover { transform: scale(1.03); background: #e7e5e4; }
+
+/* // Sidebar */
+.layout-sidebar { display: flex; flex-direction: column; gap: 2rem; }
+
+.block-video {
+    background: var(--color-dark); /* // Black background */
+    border: 1px solid var(--color-border); border-radius: var(--border-radius-lg);
+    overflow: hidden; aspect-ratio: 16/9;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+.video-placeholder { color: white; text-align: center; }
+.video-placeholder i { font-size: 3rem; margin-bottom: 0.5rem; opacity: 0.8; }
+
+/* // Actions */
+.block-actions { display: flex; flex-direction: column; gap: 1rem; }
+
+.action-btn {
+    display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+    padding: 1.25rem; font-weight: 700; border-radius: 12px;
+    transition: all 0.2s; text-align: center; cursor: pointer;
+    text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px;
+}
+
+/* // 1. View Code (Orange Border) */
+.btn-code {
+    background: white;
+    border: 2px solid var(--color-dark);
+    color: var(--color-dark);
+}
+.btn-code:hover { background: var(--color-dark); color: white; }
+
+/* // 2. Download (Yellow) */
+.btn-download {
+    background: var(--color-secondary);
+    border: 2px solid var(--color-secondary);
+    color: var(--color-dark);
+}
+.btn-download:hover { filter: brightness(0.9); }
+
+/* // 3. Documentation (Grey) */
+.btn-doc {
+    background: #f5f5f4; border: 2px solid #f5f5f4;
+    color: var(--color-text-muted);
+}
+.btn-doc:hover { background: #e7e5e4; border-color: #e7e5e4; }
+
+/* // 4. Access (Primary Orange) */
+.btn-access {
+    background: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    color: white; margin-top: 1rem;
+}
+.btn-access:hover {
+    background: transparent; color: var(--color-primary);
+}

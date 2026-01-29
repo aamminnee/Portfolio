@@ -2,6 +2,27 @@
    PAGE PROJETS (Style Catégories Grille)
    ========================================= */
 
+.card-image {
+    padding: 0 !important; /* overrides default padding to let image fill the circle */
+    overflow: hidden; /* ensures the image stays inside the border-radius */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* optional: white background behind images */
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* vital: crops the image to fill space without distorting */
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+/* optional: zoom effect on hover */
+.project-card:hover .project-img {
+    transform: scale(1.1);
+}
 .projects-section {
     padding-top: 120px;
     padding-bottom: 6rem;
@@ -26,9 +47,9 @@
     color: var(--color-text-muted);
 }
 
-/* --- SECTIONS CATÉGORIE --- */
+
 .category-section {
-    margin-bottom: 6rem; /* // Espace aéré entre les catégories */
+    margin-bottom: 6rem; 
 }
 
 .category-title {
@@ -38,35 +59,22 @@
     margin-bottom: 2rem;
     display: flex;
     align-items: center;
+    justify-content: center; 
     gap: 0.75rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--color-border);
 }
 
 .category-title i {
-    color: var(--color-primary); /* // Icône orange */
+    color: var(--color-primary); 
     font-size: 1.5rem;
 }
 
-/* --- GRILLE UNIVERSELLE --- */
 .projects-grid {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
     gap: 2rem;
-    grid-template-columns: 1fr;
-}
-
-/* // Tablette : 2 colonnes */
-@media (min-width: 768px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* // Bureau : 3 colonnes */
-@media (min-width: 1024px) {
-    .projects-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
 }
 
 /* =========================================
@@ -79,22 +87,43 @@
     border-radius: var(--border-radius-lg);
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
     display: flex;
     flex-direction: column;
-    height: 100%; /* // Assure que toutes les cartes ont la même hauteur */
+    /* // Flexbox stretch par défaut, donc les hauteurs s'égalisent sur une même ligne */
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+
+    /* // Largeur Mobile (1 par ligne) */
+    width: 100%;
+    max-width: 500px; /* // Limite la largeur pour l'esthétique sur grand écran mobile */
+}
+
+/* // Tablette : 2 colonnes */
+@media (min-width: 768px) {
+    .project-card {
+        /* // 50% de l'espace moins la moitié du gap (2rem / 2 = 1rem) */
+        width: calc(50% - 1rem); 
+        max-width: none;
+    }
+}
+
+/* // Bureau : 3 colonnes */
+@media (min-width: 1024px) {
+    .project-card {
+        /* // 33.33% de l'espace moins la compensation du gap */
+        width: calc(33.333% - 1.34rem);
+    }
 }
 
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
-    border-color: var(--color-primary);
+    border-color: var(--color-primary); /* // Border turns orange */
 }
 
 /* --- Image / Haut de carte --- */
 .card-image {
-    background-color: #f5f5f4; /* // Gris pierre chaud */
+    background-color: #f5f5f4;
     height: 200px;
     display: flex;
     align-items: center;
@@ -105,7 +134,7 @@
 
 .card-image i {
     font-size: 4rem;
-    color: #d6d3d1; /* // Gris icône */
+    color: #d6d3d1; /* Gris icône */
     transition: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -170,7 +199,7 @@
 }
 
 .project-card:hover .tag {
-    background: #ffedd5; /* // Orange pâle */
+    background: rgba(234, 88, 12, 0.1); 
     color: var(--color-primary);
-    border-color: #fed7aa;
+    border-color: rgba(234, 88, 12, 0.2);
 }

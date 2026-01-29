@@ -1,25 +1,26 @@
 /* =========================================
-   1. Variables & Reset (Palette: White/Woody/Modern)
+   1. Variables & Reset (Palette: White/Orange/Yellow)
    ========================================= */
 :root {
-    /* // PALETTE "BOISÉ MODERNE" */
-    /* // Orange cuivré / Terre (Action principale) */
-    --color-primary: #ea580c;       
-    /* // Jaune Moutarde / Doré (Secondaire) */
-    --color-secondary: #eab308;     
-    /* // Gris très foncé (Texte principal - plus doux que le noir) */
-    --color-dark: #1c1917;          
-    /* // Gris moyen (Textes secondaires) */
-    --color-text-muted: #57534e;    
+    /* // palette demandée par ordre d'importance */
+    /* // 1. fond principal (blanc pur) */
+    --color-bg: #ffffff;
     
-    /* // BACKGROUNDS */
-    --color-bg: #fafaf9;            /* // Blanc cassé très chaud (pierre chaude) */
-    --color-surface: #ffffff;       /* // Blanc pur pour les cartes */
-    --color-border: #e7e5e4;        /* // Gris chaud pour les bordures */
+    /* // 2. couleur principale (orange vibrant) */
+    --color-primary: #ea580c;
+    
+    /* // 3. couleur secondaire (jaune solaire) */
+    --color-secondary: #eab308;
+    
+    /* // 4. textes et contrastes (gris foncé / noir) */
+    --color-dark: #1c1917;
+    --color-text-muted: #57534e;
+    --color-border: #e5e5e5;
+    --color-surface: #ffffff;
 
     --font-main: 'Inter', sans-serif;
     --container-width: 1280px;
-    --border-radius-lg: 16px;       /* // Arrondis plus subtils pour le côté "Sobre" */
+    --border-radius-lg: 16px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,9 +31,21 @@ body {
     font-family: var(--font-main);
     line-height: 1.6;
     overflow-x: hidden;
+    position: relative;
+    
+    /* --- CORRECTION FOOTER --- */
+    display: flex;             /* // Active le mode flexbox */
+    flex-direction: column;    /* // Empile les éléments verticalement */
+    min-height: 100vh;         /* // Force la hauteur minimale à 100% de l'écran */
 }
 
 a { text-decoration: none; color: inherit; }
+
+/* // Permet au contenu principal de pousser le footer */
+main {
+    flex: 1; 
+    width: 100%;
+}
 
 /* =========================================
    2. Global Utility Classes
@@ -41,9 +54,11 @@ a { text-decoration: none; color: inherit; }
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 1.5rem;
+    position: relative;
+    z-index: 1; /* // contenu au-dessus du fond */
 }
 
-/* // Dégradé subtil Orange -> Jaune pour les titres */
+/* // dégradé orange vers jaune pour les textes importants */
 .text-gradient {
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
     -webkit-background-clip: text;
@@ -53,51 +68,41 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* =========================================
-   3. BACKGROUND SHAPES (Version "Aquarelle")
+   3. BACKGROUND SHAPES (Système Blobs Dynamique)
    ========================================= */
 .shapes-container {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     overflow: hidden;
-    z-index: -1;
-    pointer-events: none;
+    z-index: 0; /* // tout au fond */
+    pointer-events: none; /* // ne bloque pas les clics */
     background-color: var(--color-bg);
+    filter: blur(25px);
 }
 
+/* // style de base d'une forme (blob) */
 .shape {
     position: absolute;
-    border-radius: 50%;
-    filter: blur(80px); /* // Très flou pour un effet diffus */
-    opacity: 0.15;      /* // Transparence forte pour la sobriété */
+    filter: none; /* // pas de flou */
+    opacity: 0.6; /* // transparence pour la superposition */
+    will-change: transform; /* // optimisation performance */
+    animation: move-blob infinite alternate ease-in-out;
 }
 
-/* // Formes douces qui bougent lentement */
-.shape-1 {
-    top: -10%; left: -10%;
-    width: 600px; height: 600px;
-    background: var(--color-primary);
-    animation: float 20s infinite alternate ease-in-out;
-}
-
-.shape-2 {
-    bottom: -10%; right: -10%;
-    width: 700px; height: 700px;
-    background: var(--color-secondary);
-    animation: float 25s infinite alternate-reverse ease-in-out;
-}
-
-/* // On rajoute une 3ème forme pour l'équilibre */
-.shape.shape-blob {
-    top: 40%; left: 40%;
-    width: 400px; height: 400px;
-    background: #d6d3d1; /* // Gris chaud */
-    animation: float 30s infinite alternate ease-in-out;
-    opacity: 0.1;
-}
-
-@keyframes float {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(50px, 80px) scale(1.1); }
+/* // animation de grand déplacement ("se déplacent sur le fond") */
+@keyframes move-blob {
+    0% { 
+        transform: translate(0, 0) rotate(0deg) scale(1); 
+    }
+    33% {
+        transform: translate(100px, -50px) rotate(40deg) scale(1.1);
+    }
+    66% {
+        transform: translate(-50px, 80px) rotate(-20deg) scale(0.9);
+    }
+    100% { 
+        transform: translate(20px, -100px) rotate(10deg) scale(1); 
+    }
 }
 
 /* =========================================
@@ -107,7 +112,9 @@ a { text-decoration: none; color: inherit; }
     background-color: var(--color-surface);
     border-top: 1px solid var(--color-border);
     padding: 3rem 0;
-    margin-top: auto;
+    margin-top: auto; /* // Pousse le footer tout en bas */
+    position: relative;
+    z-index: 1;
 }
 
 .footer-container {

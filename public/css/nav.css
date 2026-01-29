@@ -1,13 +1,15 @@
+/* // Navigation styles linked to main palette */
 .navbar {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 80px;
     display: flex; align-items: center;
     z-index: 1000;
-    /* // Fond blanc légèrement transparent + flou */
-    background: rgba(255, 255, 255, 0.9);
+    /* // background white with slight transparency */
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-border);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); /* // Ombre ultra légère */
+    /* // subtle shadow */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
 }
 
 .nav-container {
@@ -20,9 +22,9 @@
     cursor: pointer; color: var(--color-dark);
     letter-spacing: -0.05em;
 }
-.nav-logo span { color: var(--color-primary); }
+.nav-logo span { color: var(--color-primary); } /* // Dot in orange */
 
-/* // Liens */
+/* // Links */
 .nav-links { display: flex; gap: 2rem; align-items: center; }
 
 .nav-item {
@@ -33,23 +35,24 @@
 
 .nav-item:hover { color: var(--color-primary); }
 
-/* // Bouton CTA "Me recruter" */
+/* // Call to Action "Recruit me" */
 .nav-btn {
     padding: 0.6rem 1.5rem;
-    background-color: var(--color-dark); /* // Noir sobre */
+    background-color: var(--color-dark); /* // Black/Dark */
     color: white;
-    border-radius: 6px; /* // Coins moins ronds, plus "pro" */
+    border-radius: 6px;
     font-weight: 600;
     transition: all 0.2s;
 }
 
 .nav-btn:hover {
-    background-color: var(--color-primary); /* // Devient orange au survol */
+    background-color: var(--color-primary); /* // Becomes Orange */
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.2);
+    /* // Shadow using primary color */
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
 }
 
-/* // Mobile */
+/* // Mobile Menu */
 .mobile-toggle, .mobile-menu { display: none; }
 
 @media (max-width: 768px) {

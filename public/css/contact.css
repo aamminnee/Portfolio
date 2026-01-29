@@ -1,4 +1,4 @@
-/* // Contact Page Styles - Clean & Modern */
+/* // Contact Page Styles */
 
 .contact-section {
     position: relative; min-height: 100vh;
@@ -11,11 +11,11 @@
     border: 1px solid var(--color-border);
     padding: 3rem; 
     max-width: 800px; margin: 0 auto;
-    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05); /* // Ombre douce "papier" */
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
     position: relative; overflow: hidden;
 }
 
-/* // Ligne décorative en haut */
+/* // Decorative line with gradient */
 .card-header-line {
     position: absolute; top: 0; left: 0; width: 100%; height: 4px;
     background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
@@ -28,7 +28,7 @@
 }
 .contact-subtitle { color: var(--color-text-muted); }
 
-/* // Formulaire */
+/* // Form */
 .contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
 .form-grid { display: grid; gap: 1.5rem; }
 @media (min-width: 768px) { .form-grid { grid-template-columns: 1fr 1fr; } }
@@ -39,10 +39,10 @@
     color: var(--color-dark);
 }
 
-/* // Inputs : Gris clair, devient blanc avec bordure orange au focus */
+/* // Inputs */
 .form-input {
     width: 100%;
-    background-color: #f9fafb; /* // Gris très pâle */
+    background-color: #f9fafb; /* // Very light grey */
     border: 1px solid #e5e7eb;
     border-radius: 8px; padding: 0.8rem 1rem;
     color: var(--color-dark); font-family: inherit;
@@ -52,8 +52,8 @@
 .form-input:focus {
     outline: none;
     background-color: white;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1); /* // Anneau orange pâle */
+    border-color: var(--color-primary); /* // Orange focus */
+    box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1); /* // Orange glow */
 }
 
 .form-select {
@@ -64,7 +64,7 @@
 
 .form-textarea { resize: vertical; min-height: 120px; }
 
-/* // Bouton Envoyer - Noir sobre */
+/* // Submit Button */
 .btn-submit {
     width: 100%; padding: 1rem; margin-top: 1rem;
     background-color: var(--color-dark);
@@ -74,7 +74,7 @@
 }
 
 .btn-submit:hover {
-    background-color: var(--color-primary); /* // Pop orange */
+    background-color: var(--color-primary); /* // Pop Orange */
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25);
 }
