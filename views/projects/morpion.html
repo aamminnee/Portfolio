@@ -13,28 +13,28 @@
             <div class="layout-main">
                 
                 <div class="block-header" data-aos="fade-up">
-                    <h1 class="header-title">MyBrickStore</h1>
+                    <h1 class="header-title">Morpion</h1>
                     <div class="header-meta">
-                        <span class="meta-pill"><i class="far fa-clock"></i> 4 Mois</span>
-                        <span class="meta-pill"><i class="far fa-calendar-alt"></i> 2023</span>
+                        <span class="meta-pill"><i class="far fa-clock"></i> 1 jour</span>
+                        <span class="meta-pill"><i class="far fa-calendar-alt"></i> 2026</span>
                     </div>
                 </div>
 
                 <div class="block-description" data-aos="fade-up" data-aos-delay="100">
                     <h2>Description du Projet</h2>
                     <p>
-                        <strong>Le concept :</strong> Transformer n'importe quelle image utilisateur en une véritable mosaïque de briques LEGO®, prête à être assemblée.
+                        <strong>Le concept :</strong> Une implémentation classique du jeu de Morpion (Tic-Tac-Toe) jouable en ligne de commande. Le jeu oppose deux joueurs qui s'affrontent sur une grille de 3x3 pour aligner trois symboles identiques.
                     </p>
                     <p>
-                        MyBrickStore n'est pas qu'un site e-commerce classique. C'est une usine logicielle complète qui relie une interface web (pour la commande), un moteur algorithmique puissant (pour le traitement d'image pixel-art) et un outil de gestion logistique.
+                        Développé entièrement en <strong>Python</strong>, ce projet met en œuvre une logique de jeu robuste incluant la gestion des tours, la vérification des conditions de victoire (lignes, colonnes et diagonales) et la gestion des matchs nuls.
                     </p>
                     <p>
-                        En tant que <strong>Chef de Projet</strong>, j'ai coordonné une équipe de 4 développeurs tout en assurant le développement du cœur algorithmique en C et l'intégration de l'API web.
+                        En tant que développeur, j'ai structuré l'application de manière fonctionnelle avec des procédures dédiées pour le dessin de la grille, la validation des coordonnées saisies par les utilisateurs et la réinitialisation de la partie.
                     </p>
                     
                     <h2 style="margin-top: 2rem;">Challenge Technique</h2>
                     <p>
-                        La principale difficulté était d'optimiser le temps de traitement de l'image. Nous avons dû créer un exécutable C compilé, appelé par le serveur PHP, pour réduire une image HD à une palette de 40 couleurs LEGO® officielles en moins de 2 secondes.
+                        La principale difficulté a été de concevoir un système de vérification efficace capable de scanner la grille après chaque coup pour détecter instantanément un gagnant ou une égalité, tout en assurant une interface utilisateur claire via le terminal.
                     </p>
                 </div>
 
@@ -43,23 +43,38 @@
                     <div class="block-tools" data-aos="fade-up" data-aos-delay="200">
                         <h3>Outils & Langages</h3>
                         <ul class="tools-list">
-                            <li><i class="fab fa-php"></i> PHP 8.2 (MVC)</li>
-                            <li><i class="fas fa-microchip"></i> Langage C</li>
-                            <li><i class="fab fa-java"></i> Java Swing</li>
-                            <li><i class="fas fa-database"></i> MySQL</li>
-                            <li><i class="fab fa-docker"></i> Docker</li>
-                            <li><i class="fab fa-git-alt"></i> Git / Trello</li>
+                            <li><i class="fab fa-python"></i> Python 3</li>
+                            <li><i class="fas fa-terminal"></i> CLI (Interface Ligne de Commande)</li>
+                            <li><i class="fas fa-code"></i> Scripting</li>
                         </ul>
                     </div>
 
                     <div class="block-images" data-aos="fade-up" data-aos-delay="300">
-                        <div class="gallery-grid">
-                            <div class="gallery-thumb">
-                                <i class="fas fa-image mb-2 mr-2"></i> Interface Web
+                        <div class="slider-container">
+
+                            <div class="mySlides fade">
+                                <div class="numbertext">1 / 4</div>
+                                <img src="public/images/Morpion/map.png" style="width:100%" alt="Aperçu du jeu Morpion">
                             </div>
-                            <div class="gallery-thumb">
-                                <i class="fas fa-cubes mb-2 mr-2"></i> Résultat Mosaïque
+
+                            <div class="mySlides fade">
+                                <div class="numbertext">2 / 4</div>
+                                <img src="public/images/Morpion/partie.png" style="width:100%" alt="Aperçu du jeu Morpion">
                             </div>
+
+                            <div class="mySlides fade">
+                                <div class="numbertext">3 / 4</div>
+                                <img src="public/images/Morpion/exes.png" style="width:100%" alt="Aperçu du jeu Morpion">
+                            </div>
+
+                            <div class="mySlides fade">
+                                <div class="numbertext">4 / 4</div>
+                                <img src="public/images/Morpion/fin.png" style="width:100%" alt="Aperçu du jeu Morpion">
+                            </div>
+
+                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                            
                         </div>
                     </div>
 
@@ -71,26 +86,22 @@
                 <div class="block-video" data-aos="fade-left">
                     <div class="video-placeholder">
                         <i class="fas fa-play-circle"></i>
-                        <p>Démonstration Vidéo</p>
+                        <p>Démonstration de la Console</p>
                     </div>
                 </div>
 
                 <div class="block-actions" data-aos="fade-left" data-aos-delay="100">
                     
-                    <a href="https://github.com/aamminnee/SAE_S3_BUT2_INFO" target="_blank" class="action-btn btn-code">
+                    <a href="https://github.com/aamminnee/morpion" target="_blank" class="action-btn btn-code">
                         <i class="fab fa-github"></i> Voir le code
                     </a>
 
-                    <a href="https://github.com/aamminnee/SAE_S3_BUT2_INFO/archive/refs/heads/Zhabrail.zip" class="action-btn btn-download">
+                    <a href="https://github.com/aamminnee/morpion/archive/refs/heads/main.zip" class="action-btn btn-download">
                         <i class="fas fa-download"></i> Télécharger le zip
                     </a>
 
-                    <a href="#" class="action-btn btn-doc" onclick="alert('Documentation PDF à venir'); return false;">
-                        <i class="fas fa-book"></i> Documentation
-                    </a>
-
-                    <a href="#" class="action-btn btn-access" onclick="alert('Le site de démo est hors ligne pour maintenance'); return false;">
-                        <i class="fas fa-external-link-alt"></i> Accéder au projet
+                    <a href="#" class="action-btn btn-access" onclick="alert('Script Python (exécutable en terminal)'); return false;">
+                        <i class="fas fa-terminal"></i> Exécuter le Script
                     </a>
 
                 </div>

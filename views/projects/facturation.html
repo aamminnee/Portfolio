@@ -13,28 +13,28 @@
             <div class="layout-main">
                 
                 <div class="block-header" data-aos="fade-up">
-                    <h1 class="header-title">MyBrickStore</h1>
+                    <h1 class="header-title">Gestion Financière</h1>
                     <div class="header-meta">
-                        <span class="meta-pill"><i class="far fa-clock"></i> 4 Mois</span>
-                        <span class="meta-pill"><i class="far fa-calendar-alt"></i> 2023</span>
+                        <span class="meta-pill"><i class="far fa-clock"></i> 1 semaines</span>
+                        <span class="meta-pill"><i class="far fa-calendar-alt"></i> 2026</span>
                     </div>
                 </div>
 
                 <div class="block-description" data-aos="fade-up" data-aos-delay="100">
                     <h2>Description du Projet</h2>
                     <p>
-                        <strong>Le concept :</strong> Transformer n'importe quelle image utilisateur en une véritable mosaïque de briques LEGO®, prête à être assemblée.
+                        <strong>Le concept :</strong> Une application web intranet dédiée à la gestion commerciale, permettant de fluidifier le cycle de vente en transformant instantanément les devis validés en factures comptables.
                     </p>
                     <p>
-                        MyBrickStore n'est pas qu'un site e-commerce classique. C'est une usine logicielle complète qui relie une interface web (pour la commande), un moteur algorithmique puissant (pour le traitement d'image pixel-art) et un outil de gestion logistique.
+                        Ce projet (SAE) se concentre sur l'intégrité des données financières. Il offre un tableau de bord centralisé pour suivre les états des commandes (Devis vs Facturé) et une interface de gestion pour le portefeuille clients (CRM léger).
                     </p>
                     <p>
-                        En tant que <strong>Chef de Projet</strong>, j'ai coordonné une équipe de 4 développeurs tout en assurant le développement du cœur algorithmique en C et l'intégration de l'API web.
+                        En tant que <strong>Développeur Backend</strong>, j'ai mis en place une logique SQL avancée pour automatiser la numérotation et la datation des documents, déchargeant ainsi l'application PHP d'une partie de la logique métier critique.
                     </p>
                     
                     <h2 style="margin-top: 2rem;">Challenge Technique</h2>
                     <p>
-                        La principale difficulté était d'optimiser le temps de traitement de l'image. Nous avons dû créer un exécutable C compilé, appelé par le serveur PHP, pour réduire une image HD à une palette de 40 couleurs LEGO® officielles en moins de 2 secondes.
+                        Le point clé de ce projet réside dans l'automatisation via la base de données. J'ai implémenté des <strong>Triggers SQL</strong> complexes pour générer automatiquement les numéros de factures et les dates lors de la conversion d'un devis. De plus, le calcul des totaux HT se fait dynamiquement via des requêtes SQL optimisées (jointures et agrégations), garantissant que les montants affichés sont toujours synchronisés avec les lignes d'articles.
                     </p>
                 </div>
 
@@ -43,24 +43,12 @@
                     <div class="block-tools" data-aos="fade-up" data-aos-delay="200">
                         <h3>Outils & Langages</h3>
                         <ul class="tools-list">
-                            <li><i class="fab fa-php"></i> PHP 8.2 (MVC)</li>
-                            <li><i class="fas fa-microchip"></i> Langage C</li>
-                            <li><i class="fab fa-java"></i> Java Swing</li>
-                            <li><i class="fas fa-database"></i> MySQL</li>
-                            <li><i class="fab fa-docker"></i> Docker</li>
-                            <li><i class="fab fa-git-alt"></i> Git / Trello</li>
+                            <li><i class="fab fa-php"></i> PHP (PDO)</li>
+                            <li><i class="fas fa-database"></i> MySQL (Triggers)</li>
+                            <li><i class="fab fa-bootstrap"></i> Bootstrap 5</li>
+                            <li><i class="fas fa-box-open"></i> Composer</li>
+                            <li><i class="fas fa-file-invoice"></i> Gestion SQL Avancée</li>
                         </ul>
-                    </div>
-
-                    <div class="block-images" data-aos="fade-up" data-aos-delay="300">
-                        <div class="gallery-grid">
-                            <div class="gallery-thumb">
-                                <i class="fas fa-image mb-2 mr-2"></i> Interface Web
-                            </div>
-                            <div class="gallery-thumb">
-                                <i class="fas fa-cubes mb-2 mr-2"></i> Résultat Mosaïque
-                            </div>
-                        </div>
                     </div>
 
                 </div>
@@ -77,19 +65,19 @@
 
                 <div class="block-actions" data-aos="fade-left" data-aos-delay="100">
                     
-                    <a href="https://github.com/aamminnee/SAE_S3_BUT2_INFO" target="_blank" class="action-btn btn-code">
+                    <a href="https://github.com/yevhen-kefa/sae_facture" target="_blank" class="action-btn btn-code">
                         <i class="fab fa-github"></i> Voir le code
                     </a>
 
-                    <a href="https://github.com/aamminnee/SAE_S3_BUT2_INFO/archive/refs/heads/Zhabrail.zip" class="action-btn btn-download">
+                    <a href="https://github.com/yevhen-kefa/sae_facture/archive/refs/heads/main.zip" class="action-btn btn-download">
                         <i class="fas fa-download"></i> Télécharger le zip
                     </a>
 
-                    <a href="#" class="action-btn btn-doc" onclick="alert('Documentation PDF à venir'); return false;">
+                    <a href="public/divers/facturation.zip" class="action-btn btn-doc">
                         <i class="fas fa-book"></i> Documentation
                     </a>
 
-                    <a href="#" class="action-btn btn-access" onclick="alert('Le site de démo est hors ligne pour maintenance'); return false;">
+                    <a href="#" class="action-btn btn-access">
                         <i class="fas fa-external-link-alt"></i> Accéder au projet
                     </a>
 
