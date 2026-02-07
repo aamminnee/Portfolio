@@ -56,9 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // liste des couleurs (doit correspondre au css)
     // palette : orange, jaune, gris, noir
     const colors = [
-        '#ea0c0cff', // var(--color-primary) - orange
-        '#d3ea08ff', 
-        '#494949', // var(--color-text-muted) - gris
+        'rgb(216, 69, 24)', 
+        'rgb(255, 251, 32)', 
+        '#ff9100', 
+        '#ff9100', 
     ];
 
     const numShapes = 12; // nombre de formes
@@ -85,9 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // couleur aléatoire (c'est ici que la magie opère)
         shape.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-
-        // opacité
-        shape.style.opacity = (Math.random() * 0.4 + 0.05).toFixed(2);
 
         // animation
         const duration = Math.floor(Math.random() * 20) + 20;

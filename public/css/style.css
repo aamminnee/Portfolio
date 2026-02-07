@@ -140,3 +140,61 @@ main {
     transition: all 0.2s ease;
 }
 .social-links a:hover { color: var(--color-primary); }
+/* --- EN-TÊTE DISSOCIÉ --- */
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+/* Le bouton retour est un petit bloc à part */
+.back-btn-block {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 50px; /* Forme pilule */
+    padding: 0.8rem 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+    font-weight: 700;
+    transition: all 0.2s;
+}
+.back-btn-block:hover {
+    transform: translateX(-5px);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* Le titre est centré absolument au milieu de la ligne */
+.title-block-centered {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    /* Pas de fond/cadre pour le titre, juste du texte pur comme l'original, ou léger fond si voulu */
+}
+
+/* Responsive : en mobile, on empile */
+@media (max-width: 992px) {
+    .header-wrapper { flex-direction: column; gap: 1.5rem; }
+    .title-block-centered { position: relative; left: auto; transform: none; }
+    .back-btn-block { align-self: flex-start; }
+}
+
+/* --- CONTENEUR DES BLOCS --- */
+.blocks-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* 75% Gauche / 25% Droite */
+    gap: 2rem;
+}
+@media (max-width: 1024px) { .blocks-grid { grid-template-columns: 1fr; } }
+
+/* --- BLOCS GÉNÉRIQUES (Gardez votre style blanc/ombre) --- */
+.white-block {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+    margin-bottom: 2rem;
+}
