@@ -13,12 +13,13 @@ function getProjectsData() {
             'title' => 'Gestion de Remises Bancaires',
             'category' => 'Développement Web',
             'date' => '2025',
-            'duration' => '2 Mois',
+            'duration' => '1 Mois',
             'style_color' => 'primary',
             
             'description' => '
+                <h2 style="margin-top: 2rem;">Le Concept</h2>
                 <p>
-                    <strong>Le concept :</strong> Une plateforme web sécurisée de gestion de trésorerie conçue selon les principes de la méthodologie Agile. Elle permet de suivre les remises de chèques et de cartes bancaires avec une distinction claire des rôles utilisateurs.
+                    Une plateforme web sécurisée de gestion de trésorerie conçue selon les principes de la méthodologie Agile. Elle permet de suivre les remises de chèques et de cartes bancaires avec une distinction claire des rôles utilisateurs.
                 </p>
                 <p>
                     Ce projet universitaire (BUT 2) met l\'accent sur la qualité de développement. L\'application offre trois interfaces distinctes : un tableau de bord <strong>Client</strong> pour le suivi des transactions et des impayés, une vue <strong>Product Owner</strong> pour l\'analyse globale avec graphiques statistiques, et une interface <strong>Admin</strong> pour la gestion des comptes.
@@ -53,13 +54,14 @@ function getProjectsData() {
         'blocus' => [
             'title' => 'Blocus.io',
             'category' => 'Logiciel & Jeux',
-            'date' => '2025',
+            'date' => '2024',
             'duration' => '2 semaines',
             'style_color' => 'secondary',
             
             'description' => '
+                <h2 style="margin-top: 2rem;">Le Concept</h2>
                 <p>
-                    <strong>Le concept :</strong> Un jeu de stratégie au tour par tour inspiré d\'Isola. L\'objectif est de coincer l\'adversaire en déplaçant son pion et en condamnant des cases du plateau pour restreindre l\'espace de jeu.
+                    Un jeu de stratégie au tour par tour inspiré d\'Isola. L\'objectif est de coincer l\'adversaire en déplaçant son pion et en condamnant des cases du plateau pour restreindre l\'espace de jeu.
                 </p>
                 <p>
                     Développé entièrement en <strong>C (norme C89)</strong>, ce projet implémente une interface graphique complète via la bibliothèque <code>libgraph</code>. Il gère des parties sur des grilles de taille variable (3x3 à 9x9), incluant des thèmes graphiques (clair/sombre) et des animations de sprites.
@@ -104,12 +106,13 @@ function getProjectsData() {
             'title' => 'Buckshot Roulette',
             'category' => 'Jeu Stratégie',
             'date' => '2023',
-            'duration' => 'Projet Personnel',
+            'duration' => '2 mois',
             'style_color' => 'primary', 
 
             'description' => '
+                <h2 style="margin-top: 2rem;">Le Concept</h2>
                 <p>
-                    <strong>Le concept :</strong> Une adaptation fidèle en 2D du célèbre jeu de roulette russe stratégique. Deux joueurs s\'affrontent dans un duel psychologique où chaque décision peut être fatale. Le jeu se déroule en 3 manches, avec un système de santé visuel et une gestion de chargeur aléatoire.
+                    Une adaptation fidèle en 2D du célèbre jeu de roulette russe stratégique. Deux joueurs s\'affrontent dans un duel psychologique où chaque décision peut être fatale. Le jeu se déroule en 3 manches, avec un système de santé visuel et une gestion de chargeur aléatoire.
                 </p>
                 <p>
                     Développé entièrement en <strong>Python</strong>, ce projet utilise la bibliothèque <strong>Pygame</strong> pour le rendu graphique et sonore. Le moteur gère la physique simplifiée des tirs, les animations de fumée, et une interface utilisateur interactive incluant la saisie de pseudonymes sur un "contrat".
@@ -149,12 +152,13 @@ function getProjectsData() {
             'title' => 'Course de Chevaux CLI',
             'category' => 'Jeu CLI & Multithreading',
             'date' => '2026',
-            'duration' => '3 jours',
+            'duration' => '2 mois',
             'style_color' => 'secondary',
 
             'description' => '
+                <h2 style="margin-top: 2rem;">Le Concept</h2>
                 <p>
-                    <strong>Le concept :</strong> Un jeu multijoueur dynamique en ligne de commande (CLI) simulant une course hippique. Deux joueurs s\'affrontent en temps réel sur le même clavier, devant marteler leur touche assignée pour faire avancer leur cheval vers la ligne d\'arrivée.
+                    Un jeu multijoueur dynamique en ligne de commande (CLI) simulant une course hippique. Deux joueurs s\'affrontent en temps réel sur le même clavier, devant marteler leur touche assignée pour faire avancer leur cheval vers la ligne d\'arrivée.
                 </p>
                 <p>
                     Développé en <strong>Python</strong>, le projet utilise la programmation parallèle pour gérer les joueurs simultanément. Le jeu propose plusieurs environnements (de "Plaine" à "Route Arc-en-ciel") et intègre une interface colorée grâce à la bibliothèque <strong>Colorama</strong> pour une expérience visuelle immersive dans le terminal.
@@ -198,12 +202,13 @@ function getProjectsData() {
             'title' => 'Installation Dual Boot',
             'category' => 'Système & Réseau',
             'date' => '2024',
-            'duration' => '2 semaines',
+            'duration' => '1 semaines',
             'style_color' => 'primary',
 
             'description' => '
+                <h2 style="margin-top: 2rem;">Le Concept</h2>
                 <p>
-                    <strong>Le concept :</strong> Le déploiement complet d\'un poste de travail polyvalent hébergeant deux systèmes d\'exploitation distincts, Windows 7 Entreprise et ArchLinux, sur une même infrastructure virtualisée (QEMU).
+                    Le déploiement complet d\'un poste de travail polyvalent hébergeant deux systèmes d\'exploitation distincts, Windows 7 Entreprise et ArchLinux, sur une même infrastructure virtualisée (QEMU).
                 </p>
                 <p>
                     Ce projet technique (SAE S1.03) visait à maîtriser les couches basses du système. Il a impliqué le partitionnement manuel des disques (GPT), l\'installation d\'un chargeur d\'amorçage unifié (GRUB) et la configuration réseau avancée pour garantir la cohabitation stable des deux environnements.
@@ -241,12 +246,13 @@ function getProjectsData() {
             'title' => 'IA Jeu de NIM',
             'category' => 'Intelligence Artificielle',
             'date' => '2023',
-            'duration' => '1 mois',
+            'duration' => '2 semaines',
             'style_color' => 'secondary',
 
             'description' => '
+                <h2 style="margin-top: 2rem;">Le Concept</h2>
                 <p>
-                    <strong>Le concept :</strong> Une Intelligence Artificielle conçue pour apprendre les règles et les stratégies gagnantes du Jeu de NIM (version 8 bâtons) grâce à l\'<strong>apprentissage par renforcement</strong>. L\'IA commence sans aucune connaissance et s\'améliore en s\'affrontant elle-même.
+                    Une Intelligence Artificielle conçue pour apprendre les règles et les stratégies gagnantes du Jeu de NIM (version 8 bâtons) grâce à l\'<strong>apprentissage par renforcement</strong>. L\'IA commence sans aucune connaissance et s\'améliore en s\'affrontant elle-même.
                 </p>
                 <p>
                     Développé en <strong>Python</strong>, le projet simule des milliers de parties. À chaque fin de tour, les décisions menant à une victoire sont récompensées (augmentation du poids de l\'action), tandis que les erreurs sont punies (diminution du poids), permettant à l\'IA de "résoudre" mathématiquement le jeu.
@@ -289,8 +295,9 @@ function getProjectsData() {
             'style_color' => 'primary', 
 
             'description' => '
+                <h2 style="margin-top: 2rem;">Le Concept</h2>
                 <p>
-                    <strong>Le concept :</strong> Offrir une plateforme web intuitive permettant aux utilisateurs de transformer leurs photos personnelles en modèles de mosaïques composés de briques de type LEGO®.
+                    Offrir une plateforme web intuitive permettant aux utilisateurs de transformer leurs photos personnelles en modèles de mosaïques composés de briques de type LEGO®.
                 </p>
                 <p>
                     Img2Brick repose sur une architecture MVC robuste. Le système gère l\'ensemble du tunnel de conversion : du téléchargement de l\'image originale au recadrage personnalisé, jusqu\'à la génération d\'un aperçu fidèle utilisant une palette de couleurs spécifique.
@@ -311,14 +318,14 @@ function getProjectsData() {
                 'CSS3 (Responsive)'
             ],
 
-            'video' => 'public/videos/votre-video.mp4',
+            'video' => 'public/images/img2brick/img2brick.webm',
 
             'gallery' => [], 
 
             'links' => [
                 'github' => 'https://github.com/aamminnee/img2brick/',
                 'download' => 'https://github.com/aamminnee/img2brick/archive/refs/heads/master.zip',
-                'doc' => '#', 
+                'doc' => 'public/divers/Documentation_img2brick.pdf', 
                 'access' => 'https://aissyne.alwaysdata.net/img2brick/views/images_views.php/'
             ]
         ],
@@ -327,13 +334,14 @@ function getProjectsData() {
         'morpion' => [
             'title' => 'Morpion',
             'category' => 'Jeu CLI',
-            'date' => '2026',
+            'date' => '2024',
             'duration' => '1 jour',
             'style_color' => 'secondary', 
 
             'description' => '
+                <h2 style="margin-top: 2rem;">Le Concept</h2>
                 <p>
-                    <strong>Le concept :</strong> Une implémentation classique du jeu de Morpion (Tic-Tac-Toe) jouable en ligne de commande. Le jeu oppose deux joueurs qui s\'affrontent sur une grille de 3x3 pour aligner trois symboles identiques.
+                    Une implémentation classique du jeu de Morpion (Tic-Tac-Toe) jouable en ligne de commande. Le jeu oppose deux joueurs qui s\'affrontent sur une grille de 3x3 pour aligner trois symboles identiques.
                 </p>
                 <p>
                     Développé entièrement en <strong>Python</strong>, ce projet met en œuvre une logique de jeu robuste incluant la gestion des tours, la vérification des conditions de victoire (lignes, colonnes et diagonales) et la gestion des matchs nuls.
@@ -373,13 +381,14 @@ function getProjectsData() {
         'same_game' => [
             'title' => 'Same-Game (Color Crush)',
             'category' => 'Logiciel & Jeux',
-            'date' => '2024',
+            'date' => '2025',
             'duration' => '3 semaines',
             'style_color' => 'primary', 
 
             'description' => '
+                <h2 style="margin-top: 2rem;">Le Concept</h2>
                 <p>
-                    <strong>Le concept :</strong> Un jeu de réflexion et d\'élimination de blocs colorés inspiré du "SameGame" classique. L\'objectif est de vider le plateau en cliquant sur des groupes de blocs adjacents de même couleur pour accumuler le maximum de points.
+                    jeu de réflexion et d\'élimination de blocs colorés inspiré du "SameGame" classique. L\'objectif est de vider le plateau en cliquant sur des groupes de blocs adjacents de même couleur pour accumuler le maximum de points.
                 </p>
                 <p>
                     Développé en <strong>Java</strong>, ce projet repose sur l\'utilisation intensive de la bibliothèque <strong>Swing</strong> pour l\'interface graphique. Il propose plusieurs modes de jeu, dont une génération de grille aléatoire et le chargement de niveaux spécifiques à partir de fichiers.
@@ -422,13 +431,14 @@ function getProjectsData() {
         'series' => [
             'title' => 'Forum Critique Séries',
             'category' => 'Développement Web',
-            'date' => '2023 - 2024',
-            'duration' => '3 Mois',
+            'date' => '2025',
+            'duration' => '2 semaines',
             'style_color' => 'secondary', 
 
             'description' => '
+                <h2 style="margin-top: 2rem;">Le Concept</h2>
                 <p>
-                    <strong>Le concept :</strong> Une plateforme communautaire interactive permettant aux passionnés de séries TV de consulter des fiches détaillées, de noter les œuvres et de partager leurs critiques saison par saison.
+                    Une plateforme communautaire interactive permettant aux passionnés de séries TV de consulter des fiches détaillées, de noter les œuvres et de partager leurs critiques saison par saison.
                 </p>
                 <p>
                     Ce projet universitaire (SAE S2.02) repose sur une architecture MVC stricte utilisant le framework CodeIgniter 3. Il gère un système complet d\'utilisateurs (inscription, connexion) ainsi qu\'une base de données relationnelle complexe liant séries, saisons, notes et commentaires.
@@ -465,13 +475,14 @@ function getProjectsData() {
         'server' => [
             'title' => 'Configuration Serveurs',
             'category' => 'Système & Réseau',
-            'date' => '2024',
-            'duration' => '2 Mois',
+            'date' => '2025',
+            'duration' => '1 semaine',
             'style_color' => 'primary', // Alternance avec le précédent (secondary)
 
             'description' => '
+                <h2 style="margin-top: 2rem;">Le Concept</h2>
                 <p>
-                    <strong>Le concept :</strong> La mise en place d\'une infrastructure réseau sécurisée et hybride, interconnectant des environnements Windows Server et Linux (ArchLinux) pour simuler un réseau d\'entreprise fonctionnel.
+                    La mise en place d\'une infrastructure réseau sécurisée et hybride, interconnectant des environnements Windows Server et Linux (ArchLinux) pour simuler un réseau d\'entreprise fonctionnel.
                 </p>
                 <p>
                     Ce projet (SAÉ SCR) m\'a permis de configurer les services essentiels d\'un réseau local : contrôleur de domaine <strong>Active Directory</strong>, distribution d\'adresses via <strong>DHCP</strong> et résolution de noms <strong>DNS</strong>.
@@ -513,8 +524,9 @@ function getProjectsData() {
             'style_color' => 'secondary', // Alternance
 
             'description' => '
+                <h2 style="margin-top: 2rem;">Le Concept</h2>
                 <p>
-                    <strong>Le concept :</strong> Une marketplace locale innovante dédiée aux produits technologiques, mettant en relation les acheteurs et les commerçants du département de la Seine-et-Marne (77).
+                    Une marketplace locale innovante dédiée aux produits technologiques, mettant en relation les acheteurs et les commerçants du département de la Seine-et-Marne (77).
                 </p>
                 <p>
                     TALK (Technologie Amine Lucas Kouami) se distingue par sa volonté de favoriser le commerce de proximité via le numérique. La plateforme propose un catalogue complet (ordinateurs, périphériques, gadgets), un espace dédié à la gestion des stocks pour les vendeurs, et intègre des options de livraison ou de Click & Collect.
@@ -551,13 +563,14 @@ function getProjectsData() {
         'mybrickstore' => [
             'title' => 'MyBrickStore',
             'category' => 'Développement Web',
-            'date' => '2023',
-            'duration' => '4 Mois',
+            'date' => '2026',
+            'duration' => '5 semaines',
             'style_color' => 'primary',
 
             'description' => '
+                <h2 style="margin-top: 2rem;">Le Concept</h2>
                 <p>
-                    <strong>Le concept :</strong> Transformer n\'importe quelle image utilisateur en une véritable mosaïque de briques LEGO®, prête à être assemblée.
+                    Transformer n\'importe quelle image utilisateur en une véritable mosaïque de briques LEGO®, prête à être assemblée.
                 </p>
                 <p>
                     MyBrickStore n\'est pas qu\'un site e-commerce classique. C\'est une usine logicielle complète qui relie une interface web (pour la commande), un moteur algorithmique puissant (pour le traitement d\'image pixel-art) et un outil de gestion logistique.
@@ -571,12 +584,13 @@ function getProjectsData() {
                 </p>',
 
             'tags' => [
-                'PHP 8.2 (MVC)',
-                'Langage C',
-                'Java Swing',
+                'PHP ',
+                'C',
+                'Java',
+                'JavaScript',
+                'HTML5 / CSS3',
+                'Script Shell',
                 'MySQL',
-                'Docker',
-                'Git / Trello'
             ],
 
             // SPECIAL FIELD: Array of videos instead of standard video/gallery
@@ -601,6 +615,50 @@ function getProjectsData() {
                 'download' => 'https://github.com/aamminnee/SAE_S3_BUT2_INFO/archive/refs/heads/Zhabrail.zip',
                 'doc' => '#', 
                 'access' => '' 
+            ]
+        ],
+
+        // --- PROJECT 14 : BILLING SYSTEM ---
+        'facturation' => [
+            'title' => 'Site de Facturation',
+            'category' => 'Développement Web',
+            'date' => '2025',
+            'duration' => '1 Semaine',
+            'style_color' => 'secondary',
+
+            'description' => '
+                <h2 style="margin-top: 2rem;">Le Concept</h2>
+                <p>
+                    Une application web de gestion commerciale conçue pour faciliter l\'administration des clients et l\'édition de documents comptables. Elle permet aux utilisateurs de gérer leur base de données clients et de générer des factures professionnelles au format PDF.
+                </p>
+                <p>
+                    Ce projet (SAE) met l\'accent sur l\'interaction avec une base de données relationnelle via <strong>PHP</strong> et <strong>MySQL</strong>. Il intègre un système de gestion des dépendances avec <strong>Composer</strong> (notamment pour <code>phpdotenv</code>) afin de sécuriser les configurations.
+                </p>
+                <p>
+                    En tant que <strong>Développeur Backend</strong>, j\'ai structuré la base de données, implémenté les opérations CRUD pour les clients (création, modification, suppression) et développé la logique de génération de factures.
+                </p>
+                <h2 style="margin-top: 2rem;">Challenge Technique</h2>
+                <p>
+                    Le principal défi a été d\'assurer l\'intégrité des données lors des transactions (création de client et facture associée) et de générer des documents PDF dynamiques respectant une mise en page stricte. La sécurisation des entrées utilisateurs et la gestion des variables d\'environnement pour la connexion à la base de données ont également été des points cruciaux.
+                </p>',
+
+            'tags' => [
+                'PHP',
+                'MySQL',
+                'Composer',
+                'HTML5 / CSS3',
+                'PDF Generation'
+            ],
+
+            'video' => 'public/videos/votre-video.mp4', 
+
+            'gallery' => [], 
+
+            'links' => [
+                'github' => 'https://github.com/aamminnee/sae_facture', 
+                'download' => 'https://github.com/aamminnee/sae_facture/archive/refs/heads/main.zip',
+                'doc' => '#',
+                'access' => ''
             ]
         ]
     ];
