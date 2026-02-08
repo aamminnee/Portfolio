@@ -229,7 +229,7 @@
 /* // video container */
 .video-content {
     flex-grow: 1;
-    background: #000;
+    background: #fff;
     width: 100%;
     height: 100%; /* take remaining height */
     overflow: hidden;

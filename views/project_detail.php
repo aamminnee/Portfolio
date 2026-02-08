@@ -60,7 +60,7 @@ $toolsBorderClass = ($p['style_color'] === 'secondary') ? 'border-primary' : 'bo
                     <?php endif; ?>
 
                     <?php if(!empty($p['links']['download'])): ?>
-                    <a href="<?= $p['links']['download'] ?>" class="action-btn btn-download" target="_blank">
+                    <a href="<?= $p['links']['download'] ?>" class="action-btn btn-download" target="_blank" download>
                         <i class="fas fa-download"></i> Télécharger (Zip)
                     </a>
                     <?php endif; ?>
@@ -94,7 +94,7 @@ $toolsBorderClass = ($p['style_color'] === 'secondary') ? 'border-primary' : 'bo
                     <div class="fixed-height-block <?= $toolsBorderClass ?>" data-aos="fade-up">
                         <div class="block-label"><?= htmlspecialchars($video['title']) ?></div>
                         <div class="video-content">
-                            <video controls poster="<?= htmlspecialchars($video['poster']) ?>">
+                            <video controls poster="public/images/LOGO.png">
                                 <source src="<?= htmlspecialchars($video['src_webm']) ?>" type="video/webm">
                                 Votre navigateur ne supporte pas la balise vidéo.
                             </video>
@@ -106,18 +106,17 @@ $toolsBorderClass = ($p['style_color'] === 'secondary') ? 'border-primary' : 'bo
                 <!-- // Standard Mode: 1 Video + Gallery -->
                 
                 <!-- // Video Block (if exists) -->
-                <?php if(!empty($p['video'])): ?>
-                <div class="fixed-height-block <?= $toolsBorderClass ?>" data-aos="fade-up">
-                    <div class="block-label">Vidéo / Démo</div>
-                    <div class="video-content">
-                        <video controls poster="public/images/votre-miniature.jpg">
-                            <source src="<?= htmlspecialchars($video['src_webm']) ?>" type="video/webm">
-                            Votre navigateur ne supporte pas la balise vidéo.
-                        </video>
+               <?php if(!empty($p['video'])): ?>
+                    <div class="fixed-height-block <?= $toolsBorderClass ?>" data-aos="fade-up">
+                        <div class="block-label">Vidéo / Démo</div>
+                        <div class="video-content">
+                            <video controls poster="public/images/LOGO.png">
+                                <source src="<?= htmlspecialchars($p['video']) ?>" type="video/webm">
+                                Votre navigateur ne supporte pas la balise vidéo.
+                            </video>
+                        </div>
                     </div>
-                </div>
                 <?php endif; ?>
-
                 <!-- // Gallery Block (if exists) -->
                 <?php if(!empty($p['gallery'])): ?>
                 <div class="fixed-height-block <?= $borderColorClass ?> <?php if(empty($p['video'])) echo 'full-width'; ?>" data-aos="fade-up" data-aos-delay="100">

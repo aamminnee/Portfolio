@@ -133,16 +133,18 @@ function getProjectsData() {
 
             'gallery' => [
                 'public/images/Buckshot_Roulette/menu.png',
+                'public/images/Buckshot_Roulette/regle.png',
                 'public/images/Buckshot_Roulette/pseudo.png',
                 'public/images/Buckshot_Roulette/manche1.png',
                 'public/images/Buckshot_Roulette/manche_fini.png',
-                'public/images/Buckshot_Roulette/partie.png'
+                'public/images/Buckshot_Roulette/partie.png',
+                'public/images/Buckshot_Roulette/classement.png'
             ],
 
             'links' => [
                 'github' => 'https://github.com/aamminnee/Buckshot-Roulette-2D',
                 'download' => 'https://github.com/aamminnee/Buckshot-Roulette-2D/archive/refs/heads/master.zip',
-                'doc' => '#',
+                'doc' => 'public/divers/rapport_buckshot_roulette.pdf',
                 'access' => ''
             ]
         ],
@@ -318,14 +320,14 @@ function getProjectsData() {
                 'CSS3 (Responsive)'
             ],
 
-            'video' => 'public/images/img2brick/img2brick.webm',
+            'video' => 'public/images/Img2brick/img2brick.webm',
 
             'gallery' => [], 
 
             'links' => [
                 'github' => 'https://github.com/aamminnee/img2brick/',
                 'download' => 'https://github.com/aamminnee/img2brick/archive/refs/heads/master.zip',
-                'doc' => 'public/divers/Documentation_img2brick.pdf', 
+                'doc' => 'public/divers/rapport_img2brick.pdf', 
                 'access' => 'https://aissyne.alwaysdata.net/img2brick/views/images_views.php/'
             ]
         ],
@@ -360,7 +362,7 @@ function getProjectsData() {
                 'Scripting'
             ],
 
-            'video' => 'public/videos/votre-video.mp4',
+            'video' => 'public/images/Morpion/Morpion.webm',
 
             'gallery' => [
                 'public/images/Morpion/map.png',
@@ -372,7 +374,7 @@ function getProjectsData() {
             'links' => [
                 'github' => 'https://github.com/aamminnee/morpion',
                 'download' => 'https://github.com/aamminnee/morpion/archive/refs/heads/main.zip',
-                'doc' => '#',
+                'doc' => 'public/divers/rapport_morpion.pdf',
                 'access' => '' 
             ]
         ],
@@ -547,7 +549,7 @@ function getProjectsData() {
                 'Gestion de Projet'
             ],
 
-            'video' => 'public/videos/votre-video.mp4',
+            'video' => 'public/images/TALK/TALK.webm',
 
             'gallery' => [], 
 
@@ -607,14 +609,14 @@ function getProjectsData() {
                 ]
             ],
 
-            'video' => '', // Empty for standard layout to avoid duplication
+            'video' => '',
             'gallery' => [], 
 
             'links' => [
                 'github' => 'https://github.com/aamminnee/SAE_S3_BUT2_INFO',
                 'download' => 'https://github.com/aamminnee/SAE_S3_BUT2_INFO/archive/refs/heads/Zhabrail.zip',
-                'doc' => '#', 
-                'access' => '' 
+                'doc' => 'https://github.com/aamminnee/SAE_S3_BUT2_INFO/tree/Zhabrail/Documentation', 
+                'access' => 'https://MyBrickStore.sytes.net/' 
             ]
         ],
 
@@ -655,9 +657,9 @@ function getProjectsData() {
             'gallery' => [], 
 
             'links' => [
-                'github' => 'https://github.com/aamminnee/sae_facture', 
-                'download' => 'https://github.com/aamminnee/sae_facture/archive/refs/heads/main.zip',
-                'doc' => '#',
+                'github' => 'https://github.com/yevhen-kefa/sae_facture',
+                'download' => 'https://github.com/yevhen-kefa/sae_facture/archive/refs/heads/main.zip',
+                'doc' => 'public/divers/rapport_facturation.pdf',
                 'access' => ''
             ]
         ]
