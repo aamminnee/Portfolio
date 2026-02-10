@@ -83,9 +83,8 @@ main {
 /* // style de base d'une forme (blob) */
 .shape {
     position: absolute;
-    filter: none; /* // pas de flou */
-    opacity: 0.6; /* // transparence pour la superposition */
-    will-change: transform; /* // optimisation performance */
+    filter: none;
+    opacity: 0.6; 
     animation: move-blob infinite alternate ease-in-out;
 }
 

@@ -1,35 +1,14 @@
 /* =========================================
-   PAGE PROJETS (Style Catégories Grille)
+   PAGE PROJETS (Style 3D Hard Shadow)
    ========================================= */
 
-.card-image {
-    padding: 0 !important; /* overrides default padding to let image fill the circle */
-    overflow: hidden; /* ensures the image stays inside the border-radius */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff; /* optional: white background behind images */
-}
-
-.project-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* vital: crops the image to fill space without distorting */
-    object-position: center;
-    transition: transform 0.5s ease;
-}
-
-/* optional: zoom effect on hover */
-.project-card:hover .project-img {
-    transform: scale(1.1);
-}
 .projects-section {
     padding-top: 120px;
     padding-bottom: 6rem;
     min-height: 100vh;
 }
 
-/* --- EN-TÊTE DE PAGE --- */
+/* --- en-tête de page --- */
 .projects-intro {
     text-align: center;
     margin-bottom: 5rem;
@@ -46,7 +25,6 @@
     font-size: 1.2rem;
     color: var(--color-text-muted);
 }
-
 
 .category-section {
     margin-bottom: 6rem; 
@@ -74,68 +52,89 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center; 
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 /* =========================================
-   CARTE PROJET (Uniforme)
+   CARTE PROJET (Uniforme & 3D Accentué)
    ========================================= */
 
 .project-card {
     background: white;
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius-lg);
+    /* // bordure épaisse noire identique aux boutons de la home */
+    border: 2px solid var(--color-dark); 
+    border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.1s ease;
+    /* // transition fluide avec un léger effet de rebond */
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
     display: flex;
     flex-direction: column;
-    /* // Flexbox stretch par défaut, donc les hauteurs s'égalisent sur une même ligne */
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+    /* // effet hard shadow 3d de base */
+    box-shadow: 4px 4px 0px var(--color-dark); 
 
-    /* // Largeur Mobile (1 par ligne) */
+    /* // largeur mobile */
     width: 100%;
-    max-width: 500px; /* // Limite la largeur pour l'esthétique sur grand écran mobile */
+    max-width: 500px;
 }
 
-/* // Tablette : 2 colonnes */
+/* // tablette : 2 colonnes */
 @media (min-width: 768px) {
     .project-card {
-        /* // 50% de l'espace moins la moitié du gap (2rem / 2 = 1rem) */
-        width: calc(50% - 1rem); 
+        width: calc(50% - 1.25rem); 
         max-width: none;
     }
 }
 
-/* // Bureau : 3 colonnes */
+/* // bureau : 3 colonnes */
 @media (min-width: 1024px) {
     .project-card {
-        /* // 33.33% de l'espace moins la compensation du gap */
-        width: calc(33.333% - 1.34rem);
+        width: calc(33.333% - 1.7rem);
     }
 }
 
+/* // hover effect fortement accentué */
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
-    border-color: var(--color-primary); /* // Border turns orange */
+    /* // déplacement marqué vers le haut et la gauche */
+    transform: translate(-5px, -5px);
+    /* // ombre orange très profonde pour simuler l'élévation */
+    box-shadow: 12px 12px 0px var(--color-primary);
+    border-color: var(--color-primary);
+    transition: 0.05s ease;
 }
 
-/* --- Image / Haut de carte --- */
+/* --- image / haut de carte --- */
 .card-image {
     background-color: #f5f5f4;
-    height: 200px;
+    height: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
+    border-bottom: 2px solid var(--color-dark);
+}
+
+.project-card:hover .card-image {
+    border-bottom-color: var(--color-primary);
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.08);
 }
 
 .card-image i {
     font-size: 4rem;
-    color: #d6d3d1; /* Gris icône */
-    transition: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    color: #d6d3d1;
+    transition: 0.3s ease;
 }
 
 .project-card:hover .card-image i {
@@ -143,7 +142,7 @@
     transform: scale(1.1) rotate(-5deg);
 }
 
-/* // Badge "Projet Phare" */
+/* // badge "projet phare" adapté au style 3d */
 .card-badge {
     position: absolute;
     top: 1rem; right: 1rem;
@@ -154,10 +153,12 @@
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    box-shadow: 0 4px 6px rgba(234, 88, 12, 0.3);
+    border: 2px solid var(--color-dark);
+    box-shadow: 2px 2px 0px var(--color-dark);
+    z-index: 10;
 }
 
-/* --- Contenu / Bas de carte --- */
+/* --- contenu / bas de carte --- */
 .card-content {
     padding: 1.5rem;
     flex-grow: 1;
@@ -166,10 +167,16 @@
 }
 
 .card-title {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 800;
     color: var(--color-dark);
     margin-bottom: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.project-card:hover .card-title {
+    color: var(--color-primary);
+    transform: translateY(-1.5px);
 }
 
 .card-desc {
@@ -177,10 +184,10 @@
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
     line-height: 1.5;
-    flex-grow: 1; /* // Pousse les tags vers le bas */
+    flex-grow: 1;
 }
 
-/* --- Tags --- */
+/* --- tags --- */
 .card-tags {
     display: flex;
     flex-wrap: wrap;
@@ -188,18 +195,21 @@
 }
 
 .tag {
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.25rem 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
     border-radius: 6px;
     background: #f5f5f4;
     color: var(--color-text-muted);
-    border: 1px solid transparent;
+    border: 1px solid var(--color-border);
+    text-transform: uppercase;
     transition: all 0.2s;
 }
 
 .project-card:hover .tag {
     background: rgba(234, 88, 12, 0.1); 
     color: var(--color-primary);
-    border-color: rgba(234, 88, 12, 0.2);
+    border-color: rgba(234, 88, 12, 0.3);
+    /* // micro-ombre 3d pour les tags au survol */
+    box-shadow: 2px 2px 0px rgba(234, 88, 12, 0.2);
 }

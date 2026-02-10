@@ -40,12 +40,18 @@ function getProjectsData() {
             ],
 
             'video' => 'public/images/Banque/app_bancaire_video.mp4',
-            'gallery' => [], 
+            'gallery' => [
+                'public/images/Banque/login.png',
+                'public/images/Banque/po.png',
+                'public/images/Banque/client.png',
+                'public/images/Banque/admin.png',
+                'public/images/Banque/invoice.png'
+            ], 
 
             'links' => [
                 'github' => 'https://github.com/tayoken/qualitededevbut2',
                 'download' => 'https://github.com/tayoken/qualitededevbut2/archive/refs/heads/main.zip',
-                'doc' => '#', 
+                'doc' => 'public/divers/rapport_talk.pdf', 
                 'access' => '' 
             ]
         ],
@@ -80,7 +86,7 @@ function getProjectsData() {
                 'Makefile'
             ],
 
-            'video' => 'public/videos/votre-video.mp4', 
+            'video' => 'public/images/Blocus/Blocus.webm', 
 
             'gallery' => [
                 'public/images/Blocus/game.png',
@@ -179,7 +185,7 @@ function getProjectsData() {
                 'Keyboard Events'
             ],
 
-            'video' => 'public/videos/votre-video.mp4',
+            'video' => 'public/images/Course/course.webm',
 
             'gallery' => [
                 'public/images/Course/menu.png',
@@ -194,7 +200,7 @@ function getProjectsData() {
             'links' => [
                 'github' => 'https://github.com/aamminnee/course-chevaux',
                 'download' => 'https://github.com/aamminnee/course-chevaux/archive/refs/heads/master.zip',
-                'doc' => '#',
+                'doc' => 'public/divers/rapport_course_chevaux.pdf',
                 'access' => ''
             ]
         ],
@@ -273,7 +279,7 @@ function getProjectsData() {
                 'CLI Simulation'
             ],
 
-            'video' => '', 
+            'video' => 'public/images/IA/IA.webm', 
 
             'gallery' => [
                 'public/images/IA/simulation.png',
@@ -283,7 +289,7 @@ function getProjectsData() {
             'links' => [
                 'github' => 'https://github.com/aamminnee/ia_nim',
                 'download' => 'https://github.com/aamminnee/ia_nim/archive/refs/heads/master.zip',
-                'doc' => '#',
+                'doc' => 'public/divers/rapport_ia.pdf',
                 'access' => ''
             ]
         ],
@@ -322,7 +328,20 @@ function getProjectsData() {
 
             'video' => 'public/images/Img2brick/img2brick.webm',
 
-            'gallery' => [], 
+            'gallery' => [
+                'public/images/Img2brick/acceuil.png',
+                'public/images/Img2brick/connexion.png',
+                'public/images/Img2brick/inscription.png',
+                'public/images/Img2brick/key.png',
+                'public/images/Img2brick/parametre.png',
+                'public/images/Img2brick/compte.png',
+                'public/images/Img2brick/recadrage.png',
+                'public/images/Img2brick/selection.png',
+                'public/images/Img2brick/paiement.png',
+                'public/images/Img2brick/bon_commande.png',
+                'public/images/Img2brick/liste.png',
+                'public/images/Img2brick/cv.png',
+            ], 
 
             'links' => [
                 'github' => 'https://github.com/aamminnee/img2brick/',
@@ -409,7 +428,7 @@ function getProjectsData() {
                 'Makefile'
             ],
 
-            'video' => 'public/videos/votre-video.mp4',
+            'video' => 'public/images/Same_Game/Same_Game.webm',
 
             'gallery' => [
                 'public/images/Same_Game/menu.png',
@@ -424,7 +443,7 @@ function getProjectsData() {
             'links' => [
                 'github' => 'https://github.com/aamminnee/Same-Game',
                 'download' => 'https://github.com/aamminnee/Same-Game/archive/refs/heads/main.zip',
-                'doc' => 'public/divers/Raport_SAE21_2024.pdf',
+                'doc' => 'public/divers/rapport_same_game.pdf',
                 'access' => '' 
             ]
         ],
@@ -461,9 +480,16 @@ function getProjectsData() {
                 'UML / Merise'
             ],
 
-            'video' => 'public/videos/votre-video.mp4', 
+            'video' => 'public/images/Series/Series.webm', 
 
-            'gallery' => [], 
+            'gallery' => [
+                'public/images/Series/header.png',
+                'public/images/Series/series.png',
+                'public/images/Series/recherche.png',
+                'public/images/Series/serie.png',
+                'public/images/Series/saison.png',
+                'public/images/Series/commentaires.png',
+            ], 
 
             'links' => [
                 'github' => 'https://github.com/aamminnee/projet_forum_critique_series',
@@ -551,13 +577,30 @@ function getProjectsData() {
 
             'video' => 'public/images/TALK/TALK.webm',
 
-            'gallery' => [], 
+            'gallery' => [
+                'public/images/TALK/titre.png',
+                'public/images/TALK/marque.png',
+                'public/images/TALK/connexion.png',
+                'public/images/TALK/inscription.png',
+                'public/images/TALK/boutique.png',
+                'public/images/TALK/partenaire.png',
+                'public/images/TALK/panier.png',
+                'public/images/TALK/clickandcollect.png',
+                'public/images/TALK/livraison.png',
+                'public/images/TALK/paiement.png',
+                'public/images/TALK/propos.png',
+                'public/images/TALK/contact.png',
+                'public/images/TALK/faq.png',
+                'public/images/TALK/equipe.png',
+                'public/images/TALK/cv.png',
+                'public/images/TALK/insta.png',
+            ], 
 
             'links' => [
                 'github' => 'https://github.com/aamminnee/talk',
                 'download' => 'https://github.com/aamminnee/talk/archive/refs/heads/main.zip',
                 'doc' => 'https://github.com/aamminnee/talk/blob/main/README.md',
-                'access' => '' // Le JS gérera l'alerte
+                'access' => '' 
             ]
         ],
 
@@ -595,17 +638,14 @@ function getProjectsData() {
                 'MySQL',
             ],
 
-            // SPECIAL FIELD: Array of videos instead of standard video/gallery
             'videos' => [
                 [
                     'title' => 'Vue Client',
                     'src' => 'public/images/Mybrickstore/Client.mp4',
-                    'poster' => 'public/images/Mybrickstore/client_miniature.png'
                 ],
                 [
                     'title' => 'Vue Admin',
                     'src' => 'public/images/Mybrickstore/Admin.mp4',
-                    'poster' => 'public/images/Mybrickstore/admin_miniature.png'
                 ]
             ],
 
@@ -615,7 +655,7 @@ function getProjectsData() {
             'links' => [
                 'github' => 'https://github.com/aamminnee/SAE_S3_BUT2_INFO',
                 'download' => 'https://github.com/aamminnee/SAE_S3_BUT2_INFO/archive/refs/heads/Zhabrail.zip',
-                'doc' => 'https://github.com/aamminnee/SAE_S3_BUT2_INFO/tree/Zhabrail/Documentation', 
+                'doc' => 'https://alkzhab.github.io/MyBrickStore-Doc/', 
                 'access' => 'https://MyBrickStore.sytes.net/' 
             ]
         ],

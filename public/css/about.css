@@ -1,0 +1,247 @@
+/* =========================================
+   PAGE A PROPOS (Style 3D Hard Shadow)
+   ========================================= */
+
+.about-section {
+    padding-top: 120px;
+    padding-bottom: 6rem;
+    min-height: 100vh;
+}
+
+.about-intro {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+/* // grille layout */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+    .about-grid {
+        grid-template-columns: 1fr 1fr; /* // 2 colonnes égales sur bureau */
+        align-items: start;
+    }
+}
+
+.about-col-left,
+.about-col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* =========================================
+   CARTE GENERIQUE A PROPOS
+   ========================================= */
+
+.about-card {
+    background: white;
+    /* // bordure épaisse noire */
+    border: 2px solid var(--color-dark);
+    border-radius: 16px;
+    padding: 2rem;
+    /* // effet 3d ombre portée */
+    box-shadow: 8px 8px 0px var(--color-dark);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.about-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 10px 10px 0px var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.about-card-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    border-bottom: 4px solid var(--color-secondary);
+    display: inline-block;
+    padding-bottom: 0.25rem;
+}
+
+.about-text {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+/* =========================================
+   CARTE PROFIL (HIGHLIGHT)
+   ========================================= */
+
+.card-highlight {
+    border-top: 8px solid var(--color-primary);
+}
+
+.card-header-icon {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-size: 2rem;
+    color: #e5e5e5;
+    transform: rotate(10deg);
+}
+
+.objective-box {
+    background-color: #fff7ed; /* // orange très clair */
+    border: 2px solid var(--color-primary);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    text-align: center;
+    color: var(--color-dark);
+}
+
+.objective-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.future-goal {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    background: #f5f5f4;
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+
+.future-goal i {
+    color: var(--color-secondary);
+}
+
+/* =========================================
+   LISTES & EXPERIENCE
+   ========================================= */
+
+.check-list {
+    list-style: none;
+    padding: 0;
+}
+
+.check-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.check-list li i {
+    color: var(--color-secondary); /* // jaune pour les checks */
+}
+
+.job-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.job-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed var(--color-border);
+}
+
+.job-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.job-icon {
+    background: var(--color-dark);
+    color: white;
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+.job-content h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+    color: var(--color-dark);
+}
+
+.job-company {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.job-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+}
+
+/* =========================================
+   COMPETENCES (TAGS)
+   ========================================= */
+
+.skill-category {
+    margin-bottom: 1.5rem;
+}
+
+.skill-category h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.tags-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background: #f5f5f4;
+    border: 1px solid var(--color-dark);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    box-shadow: 2px 2px 0px var(--color-border);
+    transition: all 0.2s;
+}
+
+.skill-tag:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+    box-shadow: 2px 2px 0px var(--color-dark);
+    transform: translateY(-1px);
+}

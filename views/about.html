@@ -1,8 +1,137 @@
-<section class="py-32 bg-darker text-gray-200 min-h-screen">
-    <div class="max-w-7xl mx-auto px-4">
-        <h1 class="text-4xl font-bold mb-8">À Propos</h1>
-        <p class="text-lg text-gray-400">
-            [Insérez le contenu de la section À Propos ici. Je n'avais pas le texte complet dans l'exemple, mais la structure est prête.]
-        </p>
+<section class="about-section">
+    <div class="container">
+        
+        <!-- // en-tête de la page -->
+        <header class="about-intro" data-aos="fade-down">
+            <h1 class="page-title">À Propos de <span class="text-uppercase">Moi</span></h1>
+            <p class="page-subtitle">L'agilité d'un étudiant, la posture d'un professionnel.</p>
+        </header>
+
+        <!-- // grille principale -->
+        <div class="about-grid">
+
+            <!-- // colonne gauche : profil et objectifs -->
+            <div class="about-col-left">
+                
+                <!-- // carte identité & recherche -->
+                <div class="about-card card-highlight" data-aos="fade-right">
+                    <div class="card-header-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h2 class="about-card-title">Profil & Objectifs</h2>
+                    <p class="about-text">
+                        Actuellement en <strong>2ème année de BUT Informatique</strong> à l'Université Gustave Eiffel, je vise l'excellence technique et opérationnelle.
+                    </p>
+                    
+                    <div class="objective-box">
+                        <span class="objective-label">Recherche Actuelle</span>
+                        <p><strong>Stage de 8 à 12 semaines</strong></p>
+                        <p>Démarrage : <strong>Avril 2026</strong></p>
+                        <p class="small-text">Full-Stack ou Admin Sys/Réseaux</p>
+                    </div>
+
+                    <div class="future-goal">
+                        <i class="fas fa-bullseye"></i>
+                        <span>Objectif futur : École d'ingénieur (ESIEE - Cyber/IoT)</span>
+                    </div>
+                </div>
+
+                <!-- // carte atout adaptabilité -->
+                <div class="about-card" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="about-card-title">
+                        <i class="fas fa-sync-alt text-primary"></i> Mon Atout : L'Adaptabilité
+                    </h2>
+                    <p class="about-text">
+                        Mon parcours m'a appris à transformer le changement en opportunité. Mon transfert réussi de l'IUT de Fontainebleau vers l'Université Gustave Eiffel démontre ma capacité à :
+                    </p>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check"></i> M'intégrer rapidement à de nouveaux environnements.</li>
+                        <li><i class="fas fa-check"></i> Maîtriser des méthodes pédagogiques variées.</li>
+                        <li><i class="fas fa-check"></i> Faire preuve d'agilité intellectuelle.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- // colonne droite : expérience pro -->
+            <div class="about-col-right">
+                
+                <!-- // carte expérience professionnelle -->
+                <div class="about-card" data-aos="fade-left">
+                    <h2 class="about-card-title">Expérience & Maturité</h2>
+                    <p class="about-text mb-2">Au-delà du code, je possède une véritable posture professionnelle acquise sur le terrain.</p>
+                    
+                    <div class="job-timeline">
+                        
+                        <!-- // job 1 -->
+                        <div class="job-item">
+                            <div class="job-icon"><i class="fas fa-pizza-slice"></i></div>
+                            <div class="job-content">
+                                <h3>Responsable de Service <span class="job-company">@ Domino's Pizza</span></h3>
+                                <p class="job-desc">Promotion rapide (Livreur → Manager). Gestion d'équipe sous pression et prise de décision en urgence.</p>
+                            </div>
+                        </div>
+
+                        <!-- // job 2 -->
+                        <div class="job-item">
+                            <div class="job-icon"><i class="fas fa-industry"></i></div>
+                            <div class="job-content">
+                                <h3>Agent de Production <span class="job-company">@ Carpenter</span></h3>
+                                <p class="job-desc">Rigueur industrielle, contrôle qualité et respect strict des normes de sécurité.</p>
+                            </div>
+                        </div>
+
+                        <!-- // job 3 -->
+                        <div class="job-item">
+                            <div class="job-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                            <div class="job-content">
+                                <h3>Enseignement</h3>
+                                <p class="job-desc">Transmission de connaissances en mathématiques et informatique (Pédagogie).</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- // carte compétences techniques -->
+                <div class="about-card" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="about-card-title">Arsenal Technique</h2>
+                    
+                    <div class="skills-wrapper">
+                        <div class="skill-category">
+                            <h4>Dev & Architecture</h4>
+                            <div class="tags-group">
+                                <span class="skill-tag">PHP (MVC)</span>
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">C</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">SQL</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h4>SysAdmin & Réseaux</h4>
+                            <div class="tags-group">
+                                <span class="skill-tag">Linux (Debian/Arch)</span>
+                                <span class="skill-tag">Bash Scripting</span>
+                                <span class="skill-tag">Wireshark</span>
+                                <span class="skill-tag">Virtualisation</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h4>IA & Algorithmique</h4>
+                            <div class="tags-group">
+                                <span class="skill-tag">MinMax Algo</span>
+                                <span class="skill-tag">Optimisation</span>
+                                <span class="skill-tag">Traitement d'image</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
 </section>

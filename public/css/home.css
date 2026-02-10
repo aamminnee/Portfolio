@@ -1,53 +1,18 @@
 /* // home page specific styles matching the new mockup */
 
+/* =========================================
+   SECTION 1 : HERO (BEIGE)
+   ========================================= */
+
 /* // wrapper to handle positioning of background shapes */
 .home-wrapper {
     position: relative;
-    min-height: calc(100vh - 80px); /* // full height minus navbar */
+    /* // hauteur minimale ajustée pour ne pas prendre tout l'écran si contenu dépasse */
+    padding: 120px 0 5rem 0; 
     display: flex;
     align-items: center;
-    overflow: hidden;
-    padding: 2rem 0;
+    overflow: visible; /* // laisse les formes dépasser si besoin */
 }
-
-/* =========================================
-   BACKGROUND SHAPES (LIGHTNING / JAGGED LINES)
-   ========================================= */
-
-.jagged-shape {
-    position: absolute;
-    z-index: -1;
-    opacity: 0.6;
-    pointer-events: none;
-}
-
-/* // top right jagged line */
-.shape-top-right {
-    top: -10%; right: -5%;
-    width: 600px; height: 600px;
-    border: 2px solid var(--color-dark);
-    /* // jagged polygon clip path */
-    clip-path: polygon(100% 0, 0 0, 100% 100%);
-    /* // using a gradient to integrate with the theme */
-    background: linear-gradient(135deg, transparent 50%, rgba(234, 179, 8, 0.1) 50%);
-    transform: rotate(-10deg);
-}
-
-/* // bottom left jagged line */
-.shape-bottom-left {
-    bottom: -10%; left: -5%;
-    width: 500px; height: 500px;
-    border-top: 2px solid var(--color-dark);
-    border-right: 2px solid var(--color-dark);
-    /* // creates the zigzag effect visually */
-    background: linear-gradient(45deg, transparent 40%, rgba(234, 88, 12, 0.05) 40%);
-    clip-path: polygon(0 100%, 0 0, 40% 40%, 100% 0, 100% 100%);
-    transform: rotate(10deg);
-}
-
-/* =========================================
-   GRID LAYOUT
-   ========================================= */
 
 .home-grid {
     display: grid;
@@ -59,18 +24,16 @@
 
 @media (min-width: 1024px) {
     .home-grid {
-        grid-template-columns: 1.2fr 1fr; /* // more space for text */
+        grid-template-columns: 1.2fr 1fr; 
     }
 }
 
-/* =========================================
-   TYPOGRAPHY
-   ========================================= */
-
+/* --- TYPOGRAPHIE HERO --- */
 .home-content {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    z-index: 2; /* // au dessus du fond */
 }
 
 .home-title {
@@ -87,14 +50,16 @@
 }
 
 @media (min-width: 1024px) {
-    .home-title { font-size: 5rem; }
+    .home-title { font-size: 4.5rem; }
 }
 
+/* // style pour le rôle (étudiant...) */
 .home-role {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-primary); /* // orange */
     line-height: 1.3;
+    min-height: 1.5em; /* // espace réservé pour éviter le saut */
 }
 
 .home-tagline {
@@ -102,6 +67,7 @@
     color: var(--color-text-muted);
     font-weight: 500;
     max-width: 500px;
+    min-height: 3em;
 }
 
 .highlight {
@@ -111,15 +77,26 @@
     font-weight: 700;
 }
 
-/* =========================================
-   SOCIAL HUB (SQUARE BUTTONS)
-   ========================================= */
+/* // curseur clignotant pour l'effet machine à écrire */
+.typing-cursor::after {
+    content: '|';
+    display: inline-block;
+    color: var(--color-primary);
+    margin-left: 2px;
+    animation: blink-cursor 0.8s infinite;
+    font-weight: 400;
+}
 
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- BOUTONS SOCIAUX (LES RECTANGLES BLANCS) --- */
 .social-hub {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
-    flex-wrap: wrap;
 }
 
 .social-box {
@@ -127,32 +104,227 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80px; height: 80px;
+    width: 70px; height: 70px;
     background: white;
     border: 2px solid var(--color-dark);
     border-radius: 12px;
     color: var(--color-dark);
-    font-weight: 700;
+    font-size: 1.8rem;
     text-decoration: none;
     transition: all 0.2s ease;
-    box-shadow: 4px 4px 0px var(--color-dark); /* // hard shadow effect */
+    box-shadow: 4px 4px 0px var(--color-dark);
 }
 
-.social-box i {
-    font-size: 1.75rem;
-    margin-bottom: 0.25rem;
-}
-
-.social-label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* // hover effects matching brand colors */
 .social-box:hover {
-    transform: translate(-2px, -2px);
+    transform: translate(-3px, -3px);
     box-shadow: 6px 6px 0px var(--color-primary);
     border-color: var(--color-primary);
     color: var(--color-primary);
+}
+
+/* --- PHOTOS ANIMÉES (STACK) --- */
+.home-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 400px;
+}
+
+.photo-stack {
+    position: relative;
+    width: 280px;
+    height: 350px;
+}
+
+.photo-card {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: white;
+    border: 2px solid var(--color-dark);
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.photo-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+}
+
+/* // animation des cartes */
+.card-1 {
+    transform: rotate(-5deg);
+    z-index: 1;
+    animation: float1 6s infinite ease-in-out;
+}
+.card-2 {
+    transform: rotate(3deg);
+    z-index: 2;
+    animation: float2 7s infinite ease-in-out;
+}
+.card-3 {
+    transform: rotate(8deg) translate(10px, 10px);
+    z-index: 3;
+    animation: float3 5s infinite ease-in-out;
+}
+
+.photo-stack:hover .card-3 { transform: rotate(15deg) translate(40px, -20px); }
+.photo-stack:hover .card-2 { transform: rotate(-5deg) translate(-30px, -10px); }
+.photo-stack:hover .card-1 { transform: rotate(-15deg) translate(-10px, 20px); }
+
+@keyframes float1 { 0%, 100% { transform: rotate(-5deg) translateY(0); } 50% { transform: rotate(-5deg) translateY(-10px); } }
+@keyframes float2 { 0%, 100% { transform: rotate(3deg) translateY(0); } 50% { transform: rotate(3deg) translateY(10px); } }
+@keyframes float3 { 0%, 100% { transform: rotate(8deg) translateY(0); } 50% { transform: rotate(8deg) translateY(-5px); } }
+
+/* =========================================
+   SECTION 2 : BLANCHE (CODE + TEXTE)
+   ========================================= */
+.section-white {
+    background-color: white;
+    padding: 5rem 0;
+    border-top: 2px solid var(--color-dark);
+    border-bottom: 2px solid var(--color-dark);
+    position: relative;
+    z-index: 5;
+}
+
+.white-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .white-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* // mockup navigateur */
+.browser-mockup {
+    background: var(--color-dark);
+    border-radius: 12px;
+    padding-top: 20px; /* // space for dots */
+    position: relative;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transform: rotate(-2deg);
+    transition: transform 0.3s;
+}
+
+.browser-mockup:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.browser-header {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 25px;
+    background: #292524;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    gap: 6px;
+}
+
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.red { background: #ef4444; }
+.yellow { background: #f59e0b; }
+.green { background: #10b981; }
+
+.code-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0 0 12px 12px;
+}
+
+/* // contenu texte section blanche */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-dark);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.highlight-orange {
+    color: var(--color-primary);
+}
+
+.section-text {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+}
+
+.tech-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: #f5f5f4;
+    border: 1px solid var(--color-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    box-shadow: 2px 2px 0px var(--color-dark);
+}
+
+/* =========================================
+   SECTION 3 : CTA CV (BEIGE)
+   ========================================= */
+.section-cta {
+    padding: 6rem 0;
+    text-align: center;
+    /* // transparent pour laisser voir le fond animé beige global */
+    background: transparent; 
+}
+
+.cta-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.cta-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    margin-bottom: 3rem;
+}
+
+.btn-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--color-dark);
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: 12px;
+    border: 2px solid var(--color-dark);
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
+}
+
+.btn-cv:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
 }

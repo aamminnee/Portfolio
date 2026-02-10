@@ -95,7 +95,7 @@ $toolsBorderClass = ($p['style_color'] === 'secondary') ? 'border-primary' : 'bo
                         <div class="block-label"><?= htmlspecialchars($video['title']) ?></div>
                         <div class="video-content">
                             <video controls poster="public/images/LOGO.png">
-                                <source src="<?= htmlspecialchars($video['src_webm']) ?>" type="video/webm">
+                                <source src="<?= htmlspecialchars($video['src']) ?>" type="video/mp4">
                                 Votre navigateur ne supporte pas la balise vidéo.
                             </video>
                         </div>
