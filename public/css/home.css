@@ -135,6 +135,7 @@
     position: relative;
     width: 280px;
     height: 350px;
+    cursor: pointer;
 }
 
 .photo-card {
@@ -146,7 +147,8 @@
     border-radius: 16px;
     padding: 10px;
     box-shadow: 6px 6px 0px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    /* // transition fluide pour les cartes qui montent */
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), z-index 0.6s;
 }
 
 .photo-card img {
@@ -154,9 +156,10 @@
     object-fit: cover;
     border-radius: 12px;
     border: 1px solid var(--color-border);
+    pointer-events: none;
 }
 
-/* // animation des cartes */
+/* // animation des cartes (états stables) */
 .card-1 {
     transform: rotate(-5deg);
     z-index: 1;
@@ -173,10 +176,39 @@
     animation: float3 5s infinite ease-in-out;
 }
 
-.photo-stack:hover .card-3 { transform: rotate(15deg) translate(40px, -20px); }
-.photo-stack:hover .card-2 { transform: rotate(-5deg) translate(-30px, -10px); }
-.photo-stack:hover .card-1 { transform: rotate(-15deg) translate(-10px, 20px); }
+/* // interaction : effet de survol du paquet */
+.photo-stack:hover .card-3 { transform: rotate(15deg) translate(20px, -10px); }
+.photo-stack:hover .card-2 { transform: rotate(-5deg) translate(-15px, -5px); }
+.photo-stack:hover .card-1 { transform: rotate(-15deg) translate(-5px, 10px); }
 
+/* // nouvelle animation : la carte part et revient en dessous */
+.card-swap-out {
+    animation: swapOut 0.6s forwards ease-in-out !important;
+}
+
+@keyframes swapOut {
+    0% {
+        /* // départ : position de la carte du dessus */
+        transform: rotate(8deg) translate(10px, 10px);
+        z-index: 10;
+    }
+    50% {
+        /* // milieu : la carte sort vers la droite et le bas */
+        transform: translateX(180px) translateY(60px) rotate(25deg);
+        z-index: 10;
+    }
+    51% {
+        /* // hop, on passe derrière instantanément pendant le mouvement */
+        z-index: 0;
+    }
+    100% {
+        /* // fin : position de la carte du dessous (card-1) */
+        transform: rotate(-5deg) translate(0, 0);
+        z-index: 1;
+    }
+}
+
+/* // animations flottantes (inchangées) */
 @keyframes float1 { 0%, 100% { transform: rotate(-5deg) translateY(0); } 50% { transform: rotate(-5deg) translateY(-10px); } }
 @keyframes float2 { 0%, 100% { transform: rotate(3deg) translateY(0); } 50% { transform: rotate(3deg) translateY(10px); } }
 @keyframes float3 { 0%, 100% { transform: rotate(8deg) translateY(0); } 50% { transform: rotate(8deg) translateY(-5px); } }

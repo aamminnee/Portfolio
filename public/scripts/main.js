@@ -47,12 +47,65 @@ document.addEventListener('keydown', function(event) {
 });
 
 /* =========================================
+   GESTION ANIMÉE DU DECK DE PHOTOS
+   ========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // sélection de la pile
+    const photoStack = document.querySelector('.photo-stack');
+    let isAnimating = false; // // verrou pour éviter le spam de clics
+
+    if (photoStack) {
+        photoStack.addEventListener('click', () => {
+            
+            // si une animation est déjà en cours, on ne fait rien
+            if (isAnimating) return;
+            isAnimating = true;
+
+            // repérage des cartes par leur classe actuelle
+            const cardTop = photoStack.querySelector('.card-3'); // celle du dessus
+            const cardMid = photoStack.querySelector('.card-2'); // celle du milieu
+            const cardBot = photoStack.querySelector('.card-1'); // celle du dessous
+
+            // 1. on lance l'animation de sortie sur la carte du dessus
+            if (cardTop) {
+                cardTop.classList.add('card-swap-out');
+            }
+
+            // 2. immédiatement, on fait monter les autres cartes (grâce à la transition css)
+            if (cardMid) {
+                cardMid.classList.remove('card-2');
+                cardMid.classList.add('card-3'); // devient top
+            }
+
+            if (cardBot) {
+                cardBot.classList.remove('card-1');
+                cardBot.classList.add('card-2'); // devient milieu
+            }
+
+            // 3. une fois l'animation terminée (600ms), on nettoie
+            setTimeout(() => {
+                if (cardTop) {
+                    // on retire l'animation de sortie
+                    cardTop.classList.remove('card-swap-out');
+                    // l'ancienne top devient officiellement la bottom
+                    cardTop.classList.remove('card-3');
+                    cardTop.classList.add('card-1');
+                }
+                
+                // on libère le verrou
+                isAnimating = false;
+            }, 600); // // correspond à la durée de l'animation css
+        });
+    }
+});
+
+/* =========================================
    GÉNÉRATION DU FOND ANIMÉ (BLOBS ORGANIQUES)
    ========================================= */
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('background-shapes');
     
-    // on ne lance l'animation des blobs que si le conteneur existe
     if (container) {
         const colors = [
             'rgb(216, 69, 24)', 
@@ -93,11 +146,9 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =========================================
        ANIMATION TYPEWRITER (MACHINE À ÉCRIRE)
        ========================================= */
-    
-    // fonction générique pour écrire du texte
     function typeText(element, text, speed, callback) {
         let i = 0;
-        element.classList.add('typing-cursor'); // ajoute le curseur
+        element.classList.add('typing-cursor');
         
         function type() {
             if (i < text.length) {
@@ -105,61 +156,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 i++;
                 setTimeout(type, speed);
             } else {
-                element.classList.remove('typing-cursor'); // retire le curseur à la fin
+                element.classList.remove('typing-cursor');
                 if (callback) callback();
             }
         }
         type();
     }
 
-    // ciblage des éléments
     const roleElement = document.querySelector('.home-role');
     const taglineElement = document.querySelector('.home-tagline');
-
-    // textes à écrire
     const roleText = "Étudiant en 2ème année de BUT Informatique";
-    
-    // tagline découpée
     const taglinePart1 = "Passionné par le développement et les solutions innovantes, je suis actuellement à la recherche d'un ";
     const taglinePart2 = "stage pour Avril 2026";
     const taglinePart3 = ".";
 
-    // on vide les contenus avant de commencer
     if (roleElement) roleElement.innerHTML = "";
     if (taglineElement) taglineElement.innerHTML = "";
 
-    // on lance les animations après un court délai
     setTimeout(() => {
-        
-        // 1. lancement de l'animation du rôle en parallèle
         if (roleElement) {
-            typeText(roleElement, roleText, 40, () => {
-                // callback fin du rôle si besoin
-            });
+            typeText(roleElement, roleText, 40, () => {});
         }
-
-        // 2. lancement de l'animation de la tagline en parallèle
         if (taglineElement) {
             typeText(taglineElement, taglinePart1, 20, () => {
-                
-                // création et ajout du span pour le highlight
                 const span = document.createElement('span');
                 span.classList.add('highlight');
                 taglineElement.appendChild(span);
-
-                // écriture à l'intérieur du span
                 typeText(span, taglinePart2, 30, () => {
-                    
-                    // le point final (hors du span)
                     const tempSpan = document.createElement('span');
                     taglineElement.appendChild(tempSpan);
-                    
-                    typeText(tempSpan, taglinePart3, 50, () => {
-                        // fin de l'animation
-                    });
+                    typeText(tempSpan, taglinePart3, 50, () => {});
                 });
             });
         }
-
-    }, 500); // délai de départ commun pour les deux textes
+    }, 500);
 });
