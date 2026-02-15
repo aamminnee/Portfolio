@@ -1,13 +1,26 @@
 <?php
-// check if project data exists
 if (!isset($currentProject)) {
     echo "<div class='container'>Erreur: Projet introuvable.</div>";
     return;
 }
-// extract data for simplified variables
 $p = $currentProject;
 $borderColorClass = ($p['style_color'] === 'secondary') ? 'border-secondary' : 'border-primary';
 $toolsBorderClass = ($p['style_color'] === 'secondary') ? 'border-primary' : 'border-secondary';
+
+
+$category = $p['category'];
+$accessBtnLabel = "Accéder au projet"; // // default text
+$accessBtnIcon = "fa-play"; // // default icon
+$showAccessBtn = true;
+
+// // determine text and visibility based on category
+if (strpos($category, 'Web') !== false) {
+    // // web projects
+    $accessBtnLabel = "Accéder au site";
+    $accessBtnIcon = "fa-globe";
+} else { 
+    $showAccessBtn = false;
+}
 ?>
 
 <section class="project-page">
@@ -71,25 +84,24 @@ $toolsBorderClass = ($p['style_color'] === 'secondary') ? 'border-primary' : 'bo
                     </a>
                     <?php endif; ?>
 
-                    <?php if(!empty($p['links']['access'])): ?>
-                        <a href="<?= $p['links']['access'] ?>" class="action-btn btn-access" target="_blank">
-                            <i class="fas fa-play"></i> Accéder au projet
-                        </a>
-                    <?php else: ?>
-                        <!-- // link disabled if no access -->
-                        <a href="#" class="action-btn btn-access" style="opacity:0.5; cursor:not-allowed;" onclick="alert('Lien non disponible ou projet local'); return false;">
-                            <i class="fas fa-lock"></i> Accès Restreint
-                        </a>
+                    <?php if($showAccessBtn): ?>
+                        <?php if(!empty($p['links']['access'])): ?>
+                            <a href="<?= $p['links']['access'] ?>" class="action-btn btn-access" target="_blank">
+                                <i class="fas <?= $accessBtnIcon ?>"></i> <?= $accessBtnLabel ?>
+                            </a>
+                        <?php else: ?>
+                            <!-- // link disabled if no access -->
+                            <a href="#" class="action-btn btn-access" style="opacity:0.5; cursor:not-allowed;" onclick="alert('Lien non disponible ou projet local'); return false;">
+                                <i class="fas fa-lock"></i> Accès Restreint
+                            </a>
+                        <?php endif; ?>
                     <?php endif; ?>
                 </div>
             </div>
         </div>
-
-        <!-- // Bottom Section: Video & Gallery (or Dual Video) -->
         <div class="bottom-section-grid">
             
             <?php if (isset($p['videos']) && count($p['videos']) > 0): ?>
-                <!-- // Multi-Video Mode (e.g., MyBrickStore) -->
                 <?php foreach($p['videos'] as $video): ?>
                     <div class="fixed-height-block <?= $toolsBorderClass ?>" data-aos="fade-up">
                         <div class="block-label"><?= htmlspecialchars($video['title']) ?></div>
@@ -103,9 +115,6 @@ $toolsBorderClass = ($p['style_color'] === 'secondary') ? 'border-primary' : 'bo
                 <?php endforeach; ?>
 
             <?php else: ?>
-                <!-- // Standard Mode: 1 Video + Gallery -->
-                
-                <!-- // Video Block (if exists) -->
                <?php if(!empty($p['video'])): ?>
                     <div class="fixed-height-block <?= $toolsBorderClass ?>" data-aos="fade-up">
                         <div class="block-label">Vidéo / Démo</div>
@@ -117,7 +126,6 @@ $toolsBorderClass = ($p['style_color'] === 'secondary') ? 'border-primary' : 'bo
                         </div>
                     </div>
                 <?php endif; ?>
-                <!-- // Gallery Block (if exists) -->
                 <?php if(!empty($p['gallery'])): ?>
                 <div class="fixed-height-block <?= $borderColorClass ?> <?php if(empty($p['video'])) echo 'full-width'; ?>" data-aos="fade-up" data-aos-delay="100">
                     <div class="block-label">Galerie</div>
@@ -135,7 +143,6 @@ $toolsBorderClass = ($p['style_color'] === 'secondary') ? 'border-primary' : 'bo
                         <?php endif; ?>
                     </div>
                 </div>
-                <!-- // gallery init script if images present -->
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
                         if (typeof showSlides === "function") {

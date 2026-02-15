@@ -388,6 +388,55 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    /* =========================================
+       CONTACT FORM SUBMISSION (AJAX)
+       ========================================= */
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            // // prevent default form submission (reload)
+            e.preventDefault();
+            
+            // // visual feedback on button
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi...';
+            btn.disabled = true;
+
+            // // collect form data
+            const formData = new FormData(this);
+
+            // // send via fetch api
+            fetch('send_mail.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                }
+                throw new Error('Erreur réseau');
+            })
+            .then(data => {
+                // // success handling
+                alert('Merci ! Votre message a bien été envoyé. Je vous répondrai rapidement.');
+                contactForm.reset();
+            })
+            .catch(error => {
+                // // error handling
+                console.error('Erreur:', error);
+                alert('Oups ! Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou m\'envoyer un mail directement.');
+            })
+            .finally(() => {
+                // // restore button state
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
+        });
+    }
+
 });
 
 /* =========================================

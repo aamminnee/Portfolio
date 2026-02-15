@@ -9,15 +9,17 @@
                 <p class="contact-subtitle">J'étudie toutes les propositions de stage pour Avril 2026.</p>
             </div>
 
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Offre simulée envoyée !');">
+            <!-- // suppression de l'alerte inline, ajout de l'id pour le JS -->
+            <form class="contact-form" id="contactForm">
                 <div class="form-grid">
                     <div class="form-group">
                         <label class="form-label">Entreprise</label>
-                        <input type="text" placeholder="Nom de l'entreprise" class="form-input">
+                        <!-- // ajout de l'attribut name -->
+                        <input type="text" name="entreprise" placeholder="Nom de l'entreprise" class="form-input" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Email</label>
-                        <input type="email" placeholder="rh@entreprise.com" class="form-input">
+                        <input type="email" name="email" placeholder="rh@entreprise.com" class="form-input" required>
                     </div>
                 </div>
 
@@ -25,26 +27,26 @@
                     <div class="form-group">
                         <label class="form-label">Type de contrat</label>
                         <div class="select-wrapper">
-                            <select class="form-input form-select">
-                                <option>Stage (8-12 semaines)</option>
-                                <option>Alternance future</option>
-                                <option>CDD / CDI</option>
-                                <option>Autre</option>
+                            <select name="contrat" class="form-input form-select">
+                                <option value="Stage">Stage (8-12 semaines)</option>
+                                <option value="Alternance">Alternance future</option>
+                                <option value="CDD/CDI">CDD / CDI</option>
+                                <option value="Autre">Autre</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Gratification (Opt.)</label>
-                        <input type="text" placeholder="Ex: Légale + Tickets Resto" class="form-input">
+                        <input type="text" name="gratification" placeholder="Ex: Légale + Tickets Resto" class="form-input">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Message</label>
-                    <textarea rows="4" placeholder="Description de la mission..." class="form-input form-textarea"></textarea>
+                    <textarea name="message" rows="4" placeholder="Description de la mission..." class="form-input form-textarea" required></textarea>
                 </div>
 
-                <button type="submit" class="btn-submit">
+                <button type="submit" class="btn-submit" id="submitBtn">
                     Envoyer l'offre <i class="fas fa-paper-plane"></i>
                 </button>
             </form>

@@ -136,6 +136,7 @@
     width: 280px;
     height: 350px;
     cursor: pointer;
+    user-select: none;
 }
 
 .photo-card {
@@ -307,6 +308,15 @@
     font-weight: 700;
     font-size: 0.85rem;
     box-shadow: 2px 2px 0px var(--color-dark);
+}
+
+.badge:hover {
+    box-shadow: 2px 2px 0px var(--color-primary);
+    transform: translate(-3px, -3px);
+    box-shadow: 2px 2px 0px var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transition: 1ms;
 }
 
 /* =========================================
