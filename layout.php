@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- // CSS Globaux -->
+    <!-- // css globaux -->
     <link rel="stylesheet" href="public/css/style.css?v=<?= time(); ?>">
     <link rel="stylesheet" href="public/css/nav.css?v=<?= time(); ?>">
 
     <?php 
-    // inclusion conditionnelle des CSS
+    // inclusion conditionnelle des css
     if (isset($pageType) && $pageType === 'project') {
         // si c'est un projet, on charge le template unique
         echo '<link rel="stylesheet" href="public/css/project_detail.css?v='.time().'">';
@@ -44,6 +44,10 @@
     <?php include 'includes/footer.html'; ?>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- // ajout de la librairie html2pdf pour la génération du cv -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
     <script src="public/scripts/main.js?v=<?= time(); ?>"></script>
     
     <?php

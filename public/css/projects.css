@@ -96,11 +96,11 @@
 /* // hover effect fortement accentué */
 .project-card:hover {
     /* // déplacement marqué vers le haut et la gauche */
-    transform: translate(-5px, -5px);
+    transform: translate(-4px, -4px);
     /* // ombre orange très profonde pour simuler l'élévation */
-    box-shadow: 12px 12px 0px var(--color-primary);
+    box-shadow: 10px 10px 0px var(--color-primary);
     border-color: var(--color-primary);
-    transition: 0.05s ease;
+    transition: 0.001s ease;
 }
 
 /* --- image / haut de carte --- */
