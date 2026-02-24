@@ -52,7 +52,7 @@ function getProjectsData() {
                 'github' => 'https://github.com/tayoken/qualitededevbut2',
                 'download' => 'https://github.com/tayoken/qualitededevbut2/archive/refs/heads/main.zip',
                 'doc' => 'public/divers/rapport_talk.pdf', 
-                'access' => '' 
+                'access' => 'https://aissyne.alwaysdata.net/QualiteDeDevBUT2/php/login.php' 
             ]
         ],
 
@@ -494,8 +494,8 @@ function getProjectsData() {
             'links' => [
                 'github' => 'https://github.com/aamminnee/projet_forum_critique_series',
                 'download' => 'https://github.com/aamminnee/projet_forum_critique_series/archive/refs/heads/main.zip',
-                'doc' => '', 
-                'access' => 'https://dwarves.iut-fbleau.fr/~goncalvl/'
+                'doc' => 'public/divers/rapport_series.pdf', 
+                'access' => 'https://aissyne.alwaysdata.net/Projet_forum_critique_series/codeigniter-develop/index.php/tvshow'
             ]
         ],
 
@@ -600,7 +600,7 @@ function getProjectsData() {
                 'github' => 'https://github.com/aamminnee/talk',
                 'download' => 'https://github.com/aamminnee/talk/archive/refs/heads/main.zip',
                 'doc' => 'https://github.com/aamminnee/talk/blob/main/README.md',
-                'access' => '' 
+                'access' => 'https://aissyne.alwaysdata.net/TALK/Acceuil.html' 
             ]
         ],
 
@@ -692,15 +692,20 @@ function getProjectsData() {
                 'PDF Generation'
             ],
 
-            'video' => 'public/videos/votre-video.mp4', 
+            'video' => 'public/images/Facture/facturation.webm', 
 
-            'gallery' => [], 
+            'gallery' => [
+                'public/images/Facture/menu.png',
+                'public/images/Facture/modif_client.png',
+                'public/images/Facture/avoir.png',
+                'public/images/Facture/phpmyadmin.png',
+            ], 
 
             'links' => [
                 'github' => 'https://github.com/yevhen-kefa/sae_facture',
                 'download' => 'https://github.com/yevhen-kefa/sae_facture/archive/refs/heads/main.zip',
                 'doc' => 'public/divers/rapport_facturation.pdf',
-                'access' => ''
+                'access' => 'http://aissyne.alwaysdata.net/Facturation/'
             ]
         ]
     ];
