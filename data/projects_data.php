@@ -707,6 +707,45 @@ function getProjectsData() {
                 'doc' => 'public/divers/rapport_facturation.pdf',
                 'access' => 'http://aissyne.alwaysdata.net/Facturation/'
             ]
+        ],
+
+        // project 15 : web server online
+        'web' => [
+            'title' => 'Serveur Web Online',
+            'category' => 'Système & Réseau',
+            'date' => '2026',
+            'duration' => '2 jours',
+            'style_color' => 'primary',
+
+            'description' => '
+                <h2 style="margin-top: 2rem;">Le Concept</h2>
+                <p>
+                    Installation, configuration et mise en production d\'un serveur web complet accessible publiquement sur Internet. Ce projet a permis d\'aborder toutes les étapes nécessaires au déploiement d\'une application ou d\'un site web dans un environnement réel.
+                </p>
+                <p>
+                    L\'infrastructure repose sur un système d\'exploitation Linux (Debian/Ubuntu) configuré depuis zéro. Elle inclut l\'installation du serveur HTTP (Apache ou Nginx), la configuration des hôtes virtuels (Virtual Hosts), et la gestion des certificats SSL/TLS pour garantir une connexion sécurisée (HTTPS).
+                </p>
+                <h2 style="margin-top: 2rem;">Challenge Technique</h2>
+                <p>
+                    Le défi principal a été de sécuriser le serveur contre les attaques courantes (configuration du pare-feu UFW, fail2ban, désactivation de l\'accès root via SSH) et d\'assurer une configuration DNS correcte pour lier un nom de domaine à l\'adresse IP publique du serveur. L\'optimisation des performances du serveur web pour supporter la charge a également fait partie des exigences.
+                </p>',
+
+            'tags' => [
+                'Apache',
+                'Linux',
+                'SSL/TLS',
+                'DNS / HTTPS / SSH',
+            ],
+
+            // leave empty if no video is available
+            'video' => '', 
+
+            'gallery' => [], 
+
+            'links' => [
+                'download' => 'public/divers/rapport_web.pdf',
+                'doc' => 'public/divers/rapport_web.pdf',
+            ]
         ]
     ];
 }
