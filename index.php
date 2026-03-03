@@ -9,7 +9,7 @@ $data = getProjectsData();
 $page = $_GET['page'] ?? 'home';
 
 // liste des pages statiques (qui ont leur propre fichier .html dans views/)
-$staticPages = ['home', 'about', 'projects', 'contact'];
+$staticPages = ['home', 'about', 'skills', 'projects', 'contact'];
 
 // logique de routage
 if (in_array($page, $staticPages)) {

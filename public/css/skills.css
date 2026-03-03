@@ -1,0 +1,302 @@
+/* // skills section wrapper with colored background */
+.skills-section {
+    padding: 5rem 0;
+    /* // utilisation d'un fond coloré chaud (gradient) pour garder l'esthétique */
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    position: relative;
+}
+
+/* // header styling */
+.skills-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: var(--color-dark, #1c1917);
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.page-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-muted, #6b7280);
+    line-height: 1.6;
+}
+
+/* // grid layout */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* // individual ue card styling */
+.ue-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-top: 5px solid var(--color-primary, #ea580c);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* // hover effects */
+.ue-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(234, 88, 12, 0.15);
+    border-top-color: var(--color-secondary, #eab308);
+}
+
+.ue-card:hover .ue-watermark {
+    transform: scale(1.1) rotate(-5deg);
+    opacity: 0.08;
+    color: var(--color-secondary, #eab308);
+}
+
+.ue-card:hover .card-icon {
+    background: var(--color-primary, #ea580c);
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* // background watermark number */
+.ue-watermark {
+    position: absolute;
+    bottom: -15px;
+    right: -5px;
+    font-size: 10rem;
+    font-weight: 900;
+    color: var(--color-primary, #ea580c);
+    opacity: 0.04;
+    z-index: -1;
+    line-height: 1;
+    user-select: none;
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+/* // icon container */
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(234, 88, 12, 0.1);
+    color: var(--color-primary, #ea580c);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* // typography inside cards */
+.skill-card-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 0.3rem;
+    color: var(--color-dark, #1c1917);
+}
+
+.skill-card-subtitle {
+    font-size: 0.95rem;
+    color: var(--color-primary, #ea580c);
+    margin-bottom: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+/* // subjects list */
+.skill-subjects {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.skill-subjects li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: var(--color-text-muted, #4b5563);
+    line-height: 1.5;
+    transition: transform 0.2s ease;
+}
+
+.skill-subjects li:hover {
+    transform: translateX(5px);
+    color: var(--color-dark, #1c1917);
+}
+
+.skill-subjects li i {
+    color: var(--color-primary, #ea580c);
+    font-size: 0.85rem;
+    margin-top: 5px;
+    margin-right: 12px;
+    opacity: 0.8;
+}
+
+/* =========================================
+   DETAILS SECTION (NEW)
+   ========================================= */
+
+/* // wrapper for the expandable section */
+.ue-details {
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+/* // detail button styling */
+.btn-detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    background: #fff3ed;
+    color: var(--color-primary, #ea580c);
+    border: 1px solid rgba(234, 88, 12, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    list-style: none; /* // hide default arrow in firefox/safari */
+}
+
+/* // hide default arrow in chrome/edge */
+.btn-detail::-webkit-details-marker {
+    display: none;
+}
+
+.btn-detail:hover {
+    background: var(--color-primary, #ea580c);
+    color: #ffffff;
+}
+
+/* // styling when details are open */
+details[open] .btn-detail {
+    background: var(--color-dark, #1c1917);
+    color: #ffffff;
+    border-color: var(--color-dark, #1c1917);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+details[open] .btn-detail i {
+    transform: rotate(180deg);
+}
+
+.btn-detail i {
+    transition: transform 0.3s ease;
+}
+
+/* // content inside details */
+.details-content {
+    background: #fafafa;
+    padding: 1.5rem 1.2rem;
+    border: 1px solid #e5e7eb;
+    border-top: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* // inner blocks of details */
+.details-section-block {
+    margin-bottom: 1.2rem;
+}
+.details-section-block:last-child {
+    margin-bottom: 0;
+}
+
+.details-section-block h4 {
+    font-size: 0.9rem;
+    color: var(--color-dark, #1c1917);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+}
+
+.details-section-block h4 i {
+    color: var(--color-primary, #ea580c);
+}
+
+.details-section-block p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #4b5563);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* // tags styling */
+.tags-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.skill-tag {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    background: #e2e8f0;
+    color: #1e293b;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.project-tag {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    background: rgba(234, 88, 12, 0.1);
+    color: var(--color-primary, #ea580c);
+    border: 1px solid rgba(234, 88, 12, 0.3);
+    border-radius: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.project-tag:hover {
+    background: var(--color-primary, #ea580c);
+    color: #ffffff;
+    border-color: var(--color-primary, #ea580c);
+}
+
+/* // responsive adjustments */
+@media (max-width: 768px) {
+    .skills-header {
+        margin-bottom: 3rem;
+        padding: 0 1rem;
+    }
+    
+    .ue-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .ue-watermark {
+        font-size: 8rem;
+    }
+}
