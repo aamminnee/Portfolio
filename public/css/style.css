@@ -34,14 +34,14 @@ body {
     position: relative;
     
     /* --- CORRECTION FOOTER --- */
-    display: flex;             /* // Active le mode flexbox */
-    flex-direction: column;    /* // Empile les éléments verticalement */
-    min-height: 100vh;         /* // Force la hauteur minimale à 100% de l'écran */
+    display: flex;             /* // active le mode flexbox */
+    flex-direction: column;    /* // empile les éléments verticalement */
+    min-height: 100vh;         /* // force la hauteur minimale à 100% de l'écran */
 }
 
 a { text-decoration: none; color: inherit; }
 
-/* // Permet au contenu principal de pousser le footer */
+/* // permet au contenu principal de pousser le footer */
 main {
     flex: 1; 
     width: 100%;
@@ -105,40 +105,212 @@ main {
 }
 
 /* =========================================
-   4. Footer Styles
+   4. Footer Styles (Nouveau Design Professionnel)
    ========================================= */
 .site-footer {
     background-color: var(--color-surface);
-    border-top: 1px solid var(--color-dark);
-    padding: 3rem 0;
-    margin-top: auto; /* // Pousse le footer tout en bas */
+    border-top: 2px solid var(--color-dark);
+    padding: 4rem 0 1.5rem 0;
+    margin-top: auto; /* // pousse le footer tout en bas */
     position: relative;
-    z-index: 1;
+    z-index: 10;
 }
 
-.footer-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
 }
 
+/* // 3 colonnes sur tablette et pc */
 @media (min-width: 768px) {
-    .footer-container {
-        flex-direction: row;
-        justify-content: space-between;
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
     }
 }
 
-.copyright { color: var(--color-text-muted); font-size: 0.9rem; }
+/* // colonne de marque (gauche) */
+.footer-logo {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--color-dark);
+    letter-spacing: -0.05em;
+    margin-bottom: 1rem;
+    display: inline-block;
+    transition: transform 0.2s;
+}
 
-.social-links { display: flex; gap: 1.5rem; }
-.social-links a {
+.footer-logo span {
+    color: var(--color-primary);
+}
+
+.footer-logo:hover {
+    transform: scale(1.05);
+}
+
+.footer-desc {
     color: var(--color-text-muted);
-    font-size: 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 400px;
+    font-weight: 500;
+}
+
+.social-links-footer {
+    display: flex;
+    gap: 1rem;
+}
+
+/* // boutons sociaux stylisés (hard shadow) */
+.social-links-footer a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: white;
+    border: 2px solid var(--color-dark);
+    border-radius: 10px;
+    color: var(--color-dark);
+    font-size: 1.2rem;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 2px 2px 0px var(--color-dark);
+}
+
+.social-links-footer a:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 5px 5px 0px var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* // colonnes de liens (droite) */
+.footer-heading {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--color-dark);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+/* // petit trait sous le titre */
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 4px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-links li a,
+.footer-links li .static-link {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     transition: all 0.2s ease;
 }
-.social-links a:hover { color: var(--color-primary); }
+
+.footer-links li a i,
+.footer-links li .static-link i {
+    color: var(--color-secondary);
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+}
+
+.footer-links li a:hover {
+    color: var(--color-primary);
+    transform: translateX(5px);
+}
+
+.footer-links li a:hover i {
+    color: var(--color-primary);
+    transform: scale(1.2);
+}
+
+/* // lien spécial mis en avant */
+.highlight-link {
+    color: var(--color-dark) !important;
+    font-weight: 900 !important;
+}
+
+.highlight-link i {
+    color: var(--color-primary) !important;
+}
+
+.highlight-link:hover {
+    color: var(--color-primary) !important;
+}
+
+.footer-bottom {
+    border-top: 2px dashed var(--color-border);
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* // on centre le contenu */
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: center; /* // on remplace space-between par center */
+    }
+}
+
+.copyright {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.footer-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.footer-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: #f5f5f4;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-dark);
+    color: var(--color-dark);
+    box-shadow: 2px 2px 0px var(--color-dark);
+    transition: all 0.2s;
+}
+
+.footer-badge:hover {
+    background: white;
+    box-shadow: 2px 2px 0px var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translate(-1px, -1px);
+}
+
 /* --- EN-TÊTE DISSOCIÉ --- */
 .header-wrapper {
     display: flex;
@@ -148,11 +320,11 @@ main {
     position: relative;
 }
 
-/* Le bouton retour est un petit bloc à part */
+/* le bouton retour est un petit bloc à part */
 .back-btn-block {
     background: white;
     border: 1px solid var(--color-border);
-    border-radius: 50px; /* Forme pilule */
+    border-radius: 50px; /* forme pilule */
     padding: 0.8rem 1.5rem;
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
     font-weight: 700;
@@ -164,16 +336,16 @@ main {
     color: var(--color-primary);
 }
 
-/* Le titre est centré absolument au milieu de la ligne */
+/* le titre est centré absolument au milieu de la ligne */
 .title-block-centered {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    /* Pas de fond/cadre pour le titre, juste du texte pur comme l'original, ou léger fond si voulu */
+    /* pas de fond/cadre pour le titre, juste du texte pur comme l'original, ou léger fond si voulu */
 }
 
-/* Responsive : en mobile, on empile */
+/* responsive : en mobile, on empile */
 @media (max-width: 992px) {
     .header-wrapper { flex-direction: column; gap: 1.5rem; }
     .title-block-centered { position: relative; left: auto; transform: none; }
@@ -183,12 +355,12 @@ main {
 /* --- CONTENEUR DES BLOCS --- */
 .blocks-grid {
     display: grid;
-    grid-template-columns: 3fr 1fr; /* 75% Gauche / 25% Droite */
+    grid-template-columns: 3fr 1fr; /* 75% gauche / 25% droite */
     gap: 2rem;
 }
 @media (max-width: 1024px) { .blocks-grid { grid-template-columns: 1fr; } }
 
-/* --- BLOCS GÉNÉRIQUES (Gardez votre style blanc/ombre) --- */
+/* --- BLOCS GÉNÉRIQUES (gardez votre style blanc/ombre) --- */
 .white-block {
     background: white;
     border: 1px solid var(--color-border);

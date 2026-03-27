@@ -1,14 +1,14 @@
-/* // skills section wrapper */
+/* // conteneur de la section globale */
 .skills-section {
     padding-top: 120px;
-    padding-bottom: 5rem;
+    padding-bottom: 8rem;
     min-height: 100vh;
-    /* // background transparent pour laisser voir l'animation de fond de layout.php */
     background: transparent; 
     position: relative;
+    overflow: hidden;
 }
 
-/* // header styling */
+/* // en-tête de la page */
 .skills-header {
     text-align: center;
     margin-bottom: 4rem;
@@ -29,169 +29,246 @@
     color: var(--color-text-muted);
 }
 
-/* // grid layout */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
+/* =========================================
+   disposition radiale (jojo)
+   ========================================= */
+
+.jojo-layout {
     position: relative;
-    z-index: 2;
+    max-width: 1200px; /* // élargi pour donner plus d'espace horizontal */
+    height: 1100px;    /* // hauteur augmentée pour éviter les superpositions en haut et en bas */
+    margin: 0 auto;
 }
 
-/* // individual ue card styling */
-.ue-card {
-    background: white;
-    border: 2px solid var(--color-dark);
-    border-top-width: 6px;
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 8px 8px 0px var(--color-dark);
-    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border-top-color: var(--color-primary);
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-/* // hover effects */
-.ue-card:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 10px 10px 0px var(--color-primary);
-    border-top-color: var(--color-secondary);
-}
-
-.ue-card:hover .ue-watermark {
-    transform: scale(1.1) rotate(-5deg);
-    opacity: 0.08;
-    color: var(--color-secondary);
-}
-
-.ue-card:hover .card-icon {
-    background: var(--color-primary);
-    color: white;
-    transform: scale(1.1);
-}
-
-/* // background watermark number */
-.ue-watermark {
+/* // radar central (stats) */
+.jojo-radar {
     position: absolute;
-    bottom: -15px;
-    right: -5px;
-    font-size: 10rem;
-    font-weight: 900;
-    color: var(--color-primary);
-    opacity: 0.04;
-    z-index: -1;
-    line-height: 1;
-    user-select: none;
-    transition: all 0.5s ease;
-    pointer-events: none;
-}
-
-/* // icon container */
-.card-icon {
-    width: 60px;
-    height: 60px;
-    background: rgba(234, 88, 12, 0.1);
-    color: var(--color-primary);
-    border-radius: 14px;
+    top: 50%;
+    left: 50%;
+    /* // marges pour éviter les conflits avec la librairie aos */
+    margin-top: -190px;
+    margin-left: -190px;
+    width: 380px;
+    height: 380px;
+    z-index: 1;
+    background: white;
+    border: 6px solid var(--color-dark);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.radar-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* // forme orange du radar avec transition pour le mouvement fluide */
+.radar-polygon {
+    fill: rgba(234, 88, 12, 0.75);
+    stroke: var(--color-primary);
+    stroke-width: 4;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* // les petits points jaunes avec transition */
+.radar-dot {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* // texte des notes avec transition */
+.radar-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    fill: var(--color-dark);
     transition: all 0.3s ease;
 }
 
-/* // typography inside cards */
-.skill-card-title {
-    font-size: 1.6rem;
-    font-weight: 900;
-    margin-bottom: 0.3rem;
-    color: var(--color-dark);
+/* =========================================
+   effets interactifs au survol (couleurs)
+   ========================================= */
+
+/* // quand on survole n'importe quelle carte, la zone orange s'illumine */
+.jojo-layout:has(.jojo-node:hover) .radar-polygon {
+    fill: rgba(234, 179, 8, 0.85); /* // devient plus jaune/vif */
+    stroke: var(--color-secondary);
 }
 
-.skill-card-subtitle {
-    font-size: 0.95rem;
-    color: var(--color-primary);
-    margin-bottom: 1.8rem;
-    text-transform: uppercase;
-    font-weight: 800;
+/* // quand on survole une carte précise, on illumine sa note et son texte */
+.jojo-layout:has(.jojo-node-0:hover) .radar-dot-0,
+.jojo-layout:has(.jojo-node-1:hover) .radar-dot-1,
+.jojo-layout:has(.jojo-node-2:hover) .radar-dot-2,
+.jojo-layout:has(.jojo-node-3:hover) .radar-dot-3,
+.jojo-layout:has(.jojo-node-4:hover) .radar-dot-4,
+.jojo-layout:has(.jojo-node-5:hover) .radar-dot-5 {
+    fill: var(--color-primary);
 }
 
-/* // subjects list */
-.skill-subjects {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-grow: 1;
+.jojo-layout:has(.jojo-node-0:hover) .radar-text-0,
+.jojo-layout:has(.jojo-node-1:hover) .radar-text-1,
+.jojo-layout:has(.jojo-node-2:hover) .radar-text-2,
+.jojo-layout:has(.jojo-node-3:hover) .radar-text-3,
+.jojo-layout:has(.jojo-node-4:hover) .radar-text-4,
+.jojo-layout:has(.jojo-node-5:hover) .radar-text-5 {
+    fill: var(--color-primary);
+    font-size: 28px; /* // le texte grossit un peu */
 }
 
-.skill-subjects li {
+/* =========================================
+   conteneurs et cartes
+   ========================================= */
+
+/* // wrappers pour le positionnement absolu */
+.jojo-node {
+    position: absolute;
+    width: 270px; /* // carte légèrement élargie pour absorber les textes longs */
+    z-index: 2;
+}
+
+/* // positionnement orbital précis et robuste (ancrage par rapport au centre) */
+/* // carte 0 : centre haut */
+.jojo-node-0 { top: 0; left: 50%; margin-left: -135px; }
+
+/* // carte 1 : haut droite (ancrée au milieu avec un décalage vers le haut) */
+.jojo-node-1 { top: 50%; margin-top: -300px; right: 1%; }
+
+/* // carte 2 : bas droite (ancrée au milieu avec un décalage vers le bas) */
+.jojo-node-2 { top: 50%; margin-top: 40px; right: 1%; }
+
+/* // carte 3 : centre bas */
+.jojo-node-3 { bottom: 0; left: 50%; margin-left: -135px; }
+
+/* // carte 4 : bas gauche */
+.jojo-node-4 { top: 50%; margin-top: 40px; left: 1%; }
+
+/* // carte 5 : haut gauche */
+.jojo-node-5 { top: 50%; margin-top: -300px; left: 1%; }
+
+/* // design de la carte individuelle */
+.jojo-skill-card {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-    color: var(--color-text-muted);
-    line-height: 1.5;
-    font-weight: 500;
-    transition: transform 0.2s ease;
-}
-
-.skill-subjects li:hover {
-    transform: translateX(5px);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: white;
+    border: 2px solid var(--color-dark);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 6px 6px 0px var(--color-dark);
+    text-decoration: none;
     color: var(--color-dark);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.skill-subjects li i {
+.jojo-skill-card:hover {
+    transform: translate(-6px, -6px) scale(1.01);
+    box-shadow: 8px 8px 0px var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(234, 88, 12, 0.1);
     color: var(--color-primary);
-    font-size: 0.85rem;
-    margin-top: 5px;
-    margin-right: 12px;
-}
-
-/* // detail button styling (modified for the new link format) */
-.btn-detail {
+    border-radius: 12px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 1rem 1.2rem;
-    background: white;
-    color: var(--color-dark);
-    border: 2px solid var(--color-dark);
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 800;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    transition: all 0.2s ease;
-    text-decoration: none;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.jojo-skill-card:hover .card-icon {
+    background: var(--color-primary);
+    color: white;
+    transform: scale(1.1) rotate(-10deg);
+    border-color: var(--color-dark);
     box-shadow: 4px 4px 0px var(--color-dark);
 }
 
-.btn-detail:hover {
-    background: var(--color-primary);
-    color: white;
-    border-color: var(--color-primary);
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px var(--color-dark);
+.skill-card-title {
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
 }
 
-/* // responsive adjustments */
-@media (max-width: 768px) {
-    .skills-header {
-        margin-bottom: 3rem;
+.skill-card-subtitle {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.card-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.6rem;
+    background: #f5f5f4;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    transition: all 0.2s;
+}
+
+.jojo-skill-card:hover .card-action {
+    background: var(--color-dark);
+    color: white;
+    border-color: var(--color-dark);
+}
+
+/* =========================================
+   design responsive (mobile & tablette)
+   ========================================= */
+
+@media (max-width: 1024px) {
+    /* // réinitialisation en flux vertical */
+    .jojo-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        gap: 2.5rem;
         padding: 0 1rem;
     }
-    
-    .ue-card {
-        padding: 2rem 1.5rem;
+
+    /* // le radar passe en haut */
+    .jojo-radar {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin-top: 0;
+        margin-left: 0;
+        margin-bottom: 2rem;
+        width: 100%;
+        max-width: 350px;
+        height: auto;
     }
-    
-    .ue-watermark {
-        font-size: 8rem;
+
+    .jojo-radar:hover {
+        transform: scale(1.02);
+    }
+
+    /* // les cartes s'empilent proprement */
+    .jojo-node {
+        position: relative;
+        top: auto; left: auto; right: auto; bottom: auto;
+        margin-top: 0;
+        margin-left: 0;
+        width: 100%;
+        max-width: 400px;
     }
 }

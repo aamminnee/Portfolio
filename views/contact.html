@@ -1,3 +1,4 @@
+<!-- // contact section -->
 <section class="contact-section">
     
     <div class="container">
@@ -9,16 +10,17 @@
                 <p class="contact-subtitle">J'étudie toutes les propositions de stage pour Avril 2026.</p>
             </div>
 
-            <!-- // suppression de l'alerte inline, ajout de l'id pour le JS -->
-            <form class="contact-form" id="contactForm">
+            <!-- // added action and method attributes for fallback -->
+            <form class="contact-form" id="contactForm" action="send_mail.php" method="POST">
                 <div class="form-grid">
                     <div class="form-group">
                         <label class="form-label">Entreprise</label>
-                        <!-- // ajout de l'attribut name -->
+                        <!-- // input for company name -->
                         <input type="text" name="entreprise" placeholder="Nom de l'entreprise" class="form-input" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Email</label>
+                        <!-- // input for email address -->
                         <input type="email" name="email" placeholder="rh@entreprise.com" class="form-input" required>
                     </div>
                 </div>
@@ -27,6 +29,7 @@
                     <div class="form-group">
                         <label class="form-label">Type de contrat</label>
                         <div class="select-wrapper">
+                            <!-- // select dropdown for contract type -->
                             <select name="contrat" class="form-input form-select">
                                 <option value="Stage">Stage (8-12 semaines)</option>
                                 <option value="Alternance">Alternance future</option>
@@ -37,14 +40,19 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Gratification (Opt.)</label>
+                        <!-- // input for salary/gratification -->
                         <input type="text" name="gratification" placeholder="Ex: Légale + Tickets Resto" class="form-input">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Message</label>
+                    <!-- // text area for the message body -->
                     <textarea name="message" rows="4" placeholder="Description de la mission..." class="form-input form-textarea" required></textarea>
                 </div>
+
+                <!-- // container to display success or error messages -->
+                <div id="formMessage" style="display: none; padding: 12px; margin-bottom: 15px; border-radius: 6px; text-align: center; font-weight: 500;"></div>
 
                 <button type="submit" class="btn-submit" id="submitBtn">
                     Envoyer l'offre <i class="fas fa-paper-plane"></i>
@@ -53,3 +61,67 @@
         </div>
     </div>
 </section>
+
+<!-- // javascript to handle form submission via ajax without reloading the page -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            // // prevent the default page reload
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const msgBox = document.getElementById('formMessage');
+            const originalText = submitBtn.innerHTML;
+            
+            // // change button to loading state
+            submitBtn.innerHTML = 'Envoi en cours... <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            msgBox.style.display = 'none';
+
+            // // collect all form data
+            const formData = new FormData(this);
+
+            // // send the post request to the php script
+            fetch('send_mail.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text().then(text => ({ status: response.status, text: text })))
+            .then(result => {
+                msgBox.style.display = 'block';
+                
+                if (result.status >= 200 && result.status < 300) {
+                    // // display success message
+                    msgBox.style.backgroundColor = 'rgba(34, 197, 94, 0.1)';
+                    msgBox.style.color = '#15803d';
+                    msgBox.style.border = '1px solid #bbf7d0';
+                    msgBox.innerText = 'Votre message a été envoyé avec succès !';
+                    contactForm.reset();
+                } else {
+                    // // display server error message
+                    msgBox.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
+                    msgBox.style.color = '#b91c1c';
+                    msgBox.style.border = '1px solid #fecaca';
+                    msgBox.innerText = 'Erreur: ' + result.text;
+                }
+            })
+            .catch(error => {
+                // // display network error message
+                msgBox.style.display = 'block';
+                msgBox.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
+                msgBox.style.color = '#b91c1c';
+                msgBox.style.border = '1px solid #fecaca';
+                msgBox.innerText = 'Erreur réseau lors de l\'envoi. Veuillez réessayer.';
+            })
+            .finally(() => {
+                // // restore the original button text and state
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+    }
+});
+</script>

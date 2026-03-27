@@ -656,7 +656,7 @@ function getProjectsData() {
                 'github' => 'https://github.com/aamminnee/SAE_S3_BUT2_INFO',
                 'download' => 'https://github.com/aamminnee/SAE_S3_BUT2_INFO/archive/refs/heads/Zhabrail.zip',
                 'doc' => 'https://alkzhab.github.io/MyBrickStore-Doc/', 
-                'access' => 'https://MyBrickStore.sytes.net/' 
+                'access' => 'https://mybrickstore.duckdns.org/' 
             ]
         ],
 

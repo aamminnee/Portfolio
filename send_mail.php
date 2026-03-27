@@ -44,13 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // // prepare the email content
     $subject = "Nouvelle proposition : $entreprise ($contrat)";
     $textContent = "Entreprise: $entreprise\nEmail: $email_client\nContrat: $contrat\nGratification: $gratification\n\nMessage:\n$message_content";
     
-    // // mailjet api payload (v3.1)
+    // mailjet api payload (v3.1)
     $body = [
         'Messages' => [
+            // // first message: notification sent to you
             [
                 'From' => [
                     'Email' => $senderEmail,
@@ -68,13 +68,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ],
                 'Subject' => $subject,
                 'TextPart' => $textContent,
-                // // optional: add an HTML part for better styling
+                // // optional: add an html part for better styling
                 'HTMLPart' => "<h3>Nouvelle offre de $entreprise</h3>
                                <p><strong>Email:</strong> $email_client</p>
                                <p><strong>Type de contrat:</strong> $contrat</p>
                                <p><strong>Gratification:</strong> $gratification</p>
                                <hr>
                                <p>" . nl2br($message_content) . "</p>"
+            ],
+            // // second message: auto-reply confirmation sent to the client
+            [
+                'From' => [
+                    'Email' => $senderEmail,
+                    'Name' => $senderName
+                ],
+                'To' => [
+                    [
+                        'Email' => $email_client,
+                        'Name' => $entreprise
+                    ]
+                ],
+                'Subject' => "Confirmation de réception de votre message - Amine Aissyne",
+                'TextPart' => "Bonjour,\n\nJ'ai bien reçu votre message concernant votre proposition et je vous en remercie. Je vous ferai un retour dans les plus brefs délais.\n\nCordialement,\nAmine Aissyne",
+                'HTMLPart' => "<h3>Bonjour,</h3>
+                               <p>J'ai bien reçu votre message concernant votre proposition de <strong>$contrat</strong> et je vous en remercie.</p>
+                               <p>Je prendrai le temps d'étudier votre offre avec attention et vous ferai un retour dans les plus brefs délais.</p>
+                               <br>
+                               <p>Cordialement,</p>
+                               <p><strong>Amine Aissyne</strong></p>"
             ]
         ]
     ];
